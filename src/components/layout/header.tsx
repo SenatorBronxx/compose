@@ -15,7 +15,6 @@ const navLinks = [
   { href: "/mobile-app", label: "Mobile App" },
   { href: "/drivers", label: "For Drivers" },
   { href: "/about", label: "About" },
-  { href: "/admin", label: "Admin" },
   { href: "/contact", label: "Contact" },
 ];
 

@@ -59,10 +59,10 @@ export function Header() {
           <SheetContent side="left" className="pr-0">
             <Link
               href="/"
-              className="flex items-center"
+              className="flex items-center space-x-2"
               onClick={() => setSheetOpen(false)}
             >
-              <Image src="https://img.sanishtech.com/u/a26c366da4c6547e1d08ef12436d9afe.png" alt="ERITAS Logo" width={24} height={24} className="mr-2" />
+              <Image src="https://img.sanishtech.com/u/a26c366da4c6547e1d08ef12436d9afe.png" alt="ERITAS Logo" width={24} height={24} />
             </Link>
             <div className="my-4 h-[calc(100vh-8rem)] pb-10 pl-6">
               <div className="flex flex-col space-y-3">

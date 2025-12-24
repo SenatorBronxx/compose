@@ -65,7 +65,7 @@ export default function Home() {
         <div className="absolute inset-0 bg-black/50" />
         <div className="relative z-10 p-4 max-w-4xl mx-auto">
           <h1 className="font-headline text-4xl md:text-6xl lg:text-7xl font-bold tracking-tighter mb-4">
-            The Future of University Transit Is Here
+            The Future of Reliable Transit Is Here
           </h1>
           <p className="text-lg md:text-xl text-primary-foreground/80 mb-8">
             ERITAS provides smart, on-demand transportation for the modern campus.

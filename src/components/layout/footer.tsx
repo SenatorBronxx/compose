@@ -26,7 +26,6 @@ export function Footer() {
           <div className="flex flex-col items-start">
             <Link href="/" className="flex items-center space-x-2 mb-4">
               <Image src="https://img.sanishtech.com/u/a26c366da4c6547e1d08ef12436d9afe.png" alt="ERITAS Logo" width={32} height={32} />
-              <span className="text-xl font-bold font-headline">ERITAS</span>
             </Link>
             <p className="text-sm text-muted-foreground">The future of university transit.</p>
           </div>

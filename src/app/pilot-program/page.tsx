@@ -28,7 +28,6 @@ const timelinePhases = [
 ];
 
 export default function PilotProgramPage() {
-    const mapImage = PlaceHolderImages.find((img) => img.id === "map-placeholder");
   return (
     <div className="container mx-auto px-4 py-16 md:py-24">
       <header className="text-center mb-16">
@@ -63,22 +62,10 @@ export default function PilotProgramPage() {
       <section className="mb-24">
         <h2 className="font-headline text-3xl md:text-4xl font-bold text-center mb-12 flex items-center justify-center gap-2"><Map/> Routes & Operations</h2>
         <Card>
-            <CardContent className="p-0">
-                {mapImage && (
-                    <Image
-                        src={mapImage.imageUrl}
-                        alt={mapImage.description}
-                        width={1200}
-                        height={800}
-                        className="rounded-t-lg object-cover w-full"
-                        data-ai-hint={mapImage.imageHint}
-                    />
-                )}
-                <div className="p-6">
-                    <p className="text-muted-foreground">
-                        During the initial phase, ERITAS will operate on a set of core routes connecting key academic buildings, libraries, and student centers. As the pilot progresses, we will introduce on-demand service zones, allowing you to book rides to and from more locations within the campus boundaries.
-                    </p>
-                </div>
+            <CardContent className="p-6">
+                <p className="text-muted-foreground">
+                    During the initial phase, ERITAS will operate on a set of core routes connecting key academic buildings, libraries, and student centers. As the pilot progresses, we will introduce on-demand service zones, allowing you to book rides to and from more locations within the campus boundaries.
+                </p>
             </CardContent>
         </Card>
       </section>

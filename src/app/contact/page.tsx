@@ -19,6 +19,7 @@ import { useToast } from "@/hooks/use-toast";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
 import { Facebook, Instagram, Linkedin, Mail, MapPin, Twitter } from "lucide-react";
 import Image from "next/image";
+import { ScrollAnimation } from "@/components/ui/scroll-animation";
 
 const formSchema = z.object({
   name: z.string().min(2, {
@@ -63,67 +64,71 @@ export default function ContactPage() {
 
   return (
     <div className="container mx-auto px-4 py-16 md:py-24">
-      <header className="text-center mb-16">
-        <h1 className="font-headline text-4xl md:text-5xl font-bold mb-4">Get in Touch</h1>
-        <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto">
-          Have questions or want to get involved? We'd love to hear from you.
-        </p>
-      </header>
+      <ScrollAnimation>
+        <header className="text-center mb-16">
+          <h1 className="font-headline text-4xl md:text-5xl font-bold mb-4">Get in Touch</h1>
+          <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto">
+            Have questions or want to get involved? We'd love to hear from you.
+          </p>
+        </header>
+      </ScrollAnimation>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-        <div className="bg-card p-8 rounded-lg">
-          <h2 className="font-headline text-2xl font-bold mb-6">Send us a Message</h2>
-          <Form {...form}>
-            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-              <FormField
-                control={form.control}
-                name="name"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Full Name</FormLabel>
-                    <FormControl>
-                      <Input placeholder="John Doe" {...field} />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-              <FormField
-                control={form.control}
-                name="email"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Email Address</FormLabel>
-                    <FormControl>
-                      <Input placeholder="you@example.com" {...field} />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-              <FormField
-                control={form.control}
-                name="message"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Your Message</FormLabel>
-                    <FormControl>
-                      <Textarea
-                        placeholder="Tell us how we can help..."
-                        className="min-h-[120px]"
-                        {...field}
-                      />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-              <Button type="submit" className="w-full">Submit</Button>
-            </form>
-          </Form>
-        </div>
+        <ScrollAnimation>
+          <div className="bg-card p-8 rounded-lg">
+            <h2 className="font-headline text-2xl font-bold mb-6">Send us a Message</h2>
+            <Form {...form}>
+              <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+                <FormField
+                  control={form.control}
+                  name="name"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Full Name</FormLabel>
+                      <FormControl>
+                        <Input placeholder="John Doe" {...field} />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+                <FormField
+                  control={form.control}
+                  name="email"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Email Address</FormLabel>
+                      <FormControl>
+                        <Input placeholder="you@example.com" {...field} />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+                <FormField
+                  control={form.control}
+                  name="message"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Your Message</FormLabel>
+                      <FormControl>
+                        <Textarea
+                          placeholder="Tell us how we can help..."
+                          className="min-h-[120px]"
+                          {...field}
+                        />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+                <Button type="submit" className="w-full">Submit</Button>
+              </form>
+            </Form>
+          </div>
+        </ScrollAnimation>
 
-        <div className="space-y-8">
+        <ScrollAnimation className="space-y-8" delay={0.1}>
             <div className="space-y-4">
                 <h3 className="font-headline text-2xl font-bold">Contact Information</h3>
                 <div className="flex items-center gap-4 text-muted-foreground">
@@ -158,7 +163,7 @@ export default function ContactPage() {
                     />
                 </div>
             )}
-        </div>
+        </ScrollAnimation>
       </div>
     </div>
   );

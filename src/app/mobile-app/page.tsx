@@ -1,4 +1,5 @@
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent } from "@/components/ui/card";
+import { ScrollAnimation } from "@/components/ui/scroll-animation";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
 import { Bell, Car, CheckCircle, Map, Star, User } from "lucide-react";
@@ -86,87 +87,91 @@ export default function MobileAppPage() {
 
   return (
     <div className="container mx-auto px-4 py-16 md:py-24">
-      <header className="text-center mb-16">
-        <h1 className="font-headline text-4xl md:text-5xl font-bold mb-4">The ERITAS App</h1>
-        <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto">
-          One platform, two experiences. Powerful tools for both passengers and drivers, right at your fingertips.
-        </p>
-      </header>
+      <ScrollAnimation>
+        <header className="text-center mb-16">
+          <h1 className="font-headline text-4xl md:text-5xl font-bold mb-4">The ERITAS App</h1>
+          <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto">
+            One platform, two experiences. Powerful tools for both passengers and drivers, right at your fingertips.
+          </p>
+        </header>
+      </ScrollAnimation>
 
-      <Tabs defaultValue="passenger" className="w-full">
-        <TabsList className="grid w-full max-w-md mx-auto grid-cols-2">
-          <TabsTrigger value="passenger">Passenger App</TabsTrigger>
-          <TabsTrigger value="driver">Driver App</TabsTrigger>
-        </TabsList>
-        <TabsContent value="passenger">
-            <Card className="mt-6 border-0 shadow-none">
-                <CardContent className="p-0 md:p-6">
-                    <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 items-center">
-                        {passengerAppImage && (
-                            <div className="flex justify-center">
-                                <Image
-                                    src={passengerAppImage.imageUrl}
-                                    alt={passengerAppImage.description}
-                                    width={300}
-                                    height={600}
-                                    className="object-contain"
-                                    data-ai-hint={passengerAppImage.imageHint}
-                                />
-                            </div>
-                        )}
-                        <div className="lg:col-span-2">
-                            <h2 className="font-headline text-3xl font-bold mb-4">Travel Smarter</h2>
-                            <p className="text-muted-foreground text-lg mb-8">
-                                Our passenger app is designed for convenience, safety, and a seamless travel experience from start to finish.
-                            </p>
-                            <div className="grid grid-cols-2 sm:grid-cols-3 gap-6">
-                                {passengerFeatures.map((feature, index) => (
-                                    <div key={index} className="flex items-center gap-3">
-                                        <div className="text-primary">{feature.icon}</div>
-                                        <span className="font-medium">{feature.text}</span>
-                                    </div>
-                                ))}
-                            </div>
-                        </div>
-                    </div>
-                </CardContent>
-            </Card>
-        </TabsContent>
-        <TabsContent value="driver">
-            <Card className="mt-6 border-0 shadow-none">
-                <CardContent className="p-0 md:p-6">
-                    <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 items-center">
-                         {driverAppImage && (
-                            <div className="flex justify-center lg:order-last">
-                                <Image
-                                    src={driverAppImage.imageUrl}
-                                    alt={driverAppImage.description}
-                                    width={300}
-                                    height={600}
-                                    className="object-contain"
-                                    data-ai-hint={driverAppImage.imageHint}
-                                />
-                            </div>
-                        )}
-                        <div className="lg:col-span-2">
-                            <h2 className="font-headline text-3xl font-bold mb-4">Earn on Your Terms</h2>
-                            <p className="text-muted-foreground text-lg mb-8">
-                                The driver app provides all the tools you need to manage your rides, track earnings, and get support.
-                            </p>
-                            <div className="grid grid-cols-2 sm:grid-cols-3 gap-6">
-                                {driverFeatures.map((feature, index) => (
-                                    <div key={index} className="flex items-center gap-3">
-                                        <div className="text-primary">{feature.icon}</div>
-                                        <span className="font-medium">{feature.text}</span>
-                                    </div>
-                                ))}
-                            </div>
-                        </div>
-                    </div>
-                </CardContent>
-            </Card>
-        </TabsContent>
-      </Tabs>
+      <ScrollAnimation>
+        <Tabs defaultValue="passenger" className="w-full">
+          <TabsList className="grid w-full max-w-md mx-auto grid-cols-2">
+            <TabsTrigger value="passenger">Passenger App</TabsTrigger>
+            <TabsTrigger value="driver">Driver App</TabsTrigger>
+          </TabsList>
+          <TabsContent value="passenger">
+              <Card className="mt-6 border-0 shadow-none">
+                  <CardContent className="p-0 md:p-6">
+                      <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 items-center">
+                          {passengerAppImage && (
+                              <ScrollAnimation className="flex justify-center">
+                                  <Image
+                                      src={passengerAppImage.imageUrl}
+                                      alt={passengerAppImage.description}
+                                      width={300}
+                                      height={600}
+                                      className="object-contain"
+                                      data-ai-hint={passengerAppImage.imageHint}
+                                  />
+                              </ScrollAnimation>
+                          )}
+                          <ScrollAnimation className="lg:col-span-2" delay={0.1}>
+                              <h2 className="font-headline text-3xl font-bold mb-4">Travel Smarter</h2>
+                              <p className="text-muted-foreground text-lg mb-8">
+                                  Our passenger app is designed for convenience, safety, and a seamless travel experience from start to finish.
+                              </p>
+                              <div className="grid grid-cols-2 sm:grid-cols-3 gap-6">
+                                  {passengerFeatures.map((feature, index) => (
+                                      <div key={index} className="flex items-center gap-3">
+                                          <div className="text-primary">{feature.icon}</div>
+                                          <span className="font-medium">{feature.text}</span>
+                                      </div>
+                                  ))}
+                              </div>
+                          </ScrollAnimation>
+                      </div>
+                  </CardContent>
+              </Card>
+          </TabsContent>
+          <TabsContent value="driver">
+              <Card className="mt-6 border-0 shadow-none">
+                  <CardContent className="p-0 md:p-6">
+                      <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 items-center">
+                           {driverAppImage && (
+                              <ScrollAnimation className="flex justify-center lg:order-last">
+                                  <Image
+                                      src={driverAppImage.imageUrl}
+                                      alt={driverAppImage.description}
+                                      width={300}
+                                      height={600}
+                                      className="object-contain"
+                                      data-ai-hint={driverAppImage.imageHint}
+                                  />
+                              </ScrollAnimation>
+                          )}
+                          <ScrollAnimation className="lg:col-span-2" delay={0.1}>
+                              <h2 className="font-headline text-3xl font-bold mb-4">Earn on Your Terms</h2>
+                              <p className="text-muted-foreground text-lg mb-8">
+                                  The driver app provides all the tools you need to manage your rides, track earnings, and get support.
+                              </p>
+                              <div className="grid grid-cols-2 sm:grid-cols-3 gap-6">
+                                  {driverFeatures.map((feature, index) => (
+                                      <div key={index} className="flex items-center gap-3">
+                                          <div className="text-primary">{feature.icon}</div>
+                                          <span className="font-medium">{feature.text}</span>
+                                      </div>
+                                  ))}
+                              </div>
+                          </ScrollAnimation>
+                      </div>
+                  </CardContent>
+              </Card>
+          </TabsContent>
+        </Tabs>
+      </ScrollAnimation>
     </div>
   );
 }

@@ -43,6 +43,7 @@ const socialLinks = [
 export default function ContactPage() {
   const { toast } = useToast();
   const contactImage = PlaceHolderImages.find((img) => img.id === "contact-page-image");
+  const companyEmail = "eritastransportservice@outlook.com";
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -54,10 +55,15 @@ export default function ContactPage() {
   });
 
   function onSubmit(values: z.infer<typeof formSchema>) {
-    console.log(values);
+    const subject = `New message from ${values.name}`;
+    const body = `${values.message}\n\nFrom: ${values.name} <${values.email}>`;
+    const mailtoLink = `mailto:${companyEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    
+    window.location.href = mailtoLink;
+
     toast({
-      title: "Message Sent!",
-      description: "Thanks for reaching out. We'll get back to you soon.",
+      title: "Email client opened!",
+      description: "Your email client has been opened with the message details.",
     });
     form.reset();
   }
@@ -122,7 +128,7 @@ export default function ContactPage() {
                     </FormItem>
                   )}
                 />
-                <Button type="submit" className="w-full">Submit</Button>
+                <Button type="submit" className="w-full">Send Email</Button>
               </form>
             </Form>
           </div>
@@ -133,7 +139,7 @@ export default function ContactPage() {
                 <h3 className="font-headline text-2xl font-bold">Contact Information</h3>
                 <div className="flex items-center gap-4 text-muted-foreground">
                     <Mail className="h-5 w-5 text-primary"/>
-                    <span>eritastransportservice@outlook.com</span>
+                    <span>{companyEmail}</span>
                 </div>
                 <div className="flex items-center gap-4 text-muted-foreground">
                     <MapPin className="h-5 w-5 text-primary"/>

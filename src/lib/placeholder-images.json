@@ -41,6 +41,12 @@
       "description": "A modern university building with greenery.",
       "imageUrl": "https://images.unsplash.com/photo-1646059526194-a5fb83134aca?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8dW5pdmVyc2l0eSUyMGJ1aWxkaW5nfGVufDB8fHx8MTc2NjUzOTU1MHww&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "university building"
+    },
+    {
+      "id": "pilot-program-header",
+      "description": "A group of happy friends enjoying their time on a travel bus.",
+      "imageUrl": "https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxidXMlMjB0cmF2ZWx8ZW58MHx8fHwxNzY2NTM5NTUwfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "bus travel"
     }
   ]
 }

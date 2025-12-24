@@ -1,3 +1,46 @@
 {
-  "placeholderImages": []
+  "placeholderImages": [
+    {
+      "id": "hero-background",
+      "description": "A modern electric shuttle bus driving on a university campus at dusk.",
+      "imageUrl": "https://images.unsplash.com/photo-1650964974722-eacb5b5f63bd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxlbGVjdHJpYyUyMGJ1cyUyMGNhbXB1c3xlbnwwfHx8fDE3NjY1Mzk1NTB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "electric bus campus"
+    },
+    {
+      "id": "map-placeholder",
+      "description": "A stylized map showing shuttle routes across a university campus.",
+      "imageUrl": "https://images.unsplash.com/photo-1661776724340-b488f7d67316?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxjYW1wdXMlMjBtYXAlMjByb3V0ZXN8ZW58MHx8fHwxNzY2NTM5NTUwfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "campus map routes"
+    },
+    {
+      "id": "passenger-app-mockup",
+      "description": "A mockup of the ERITAS passenger app on a smartphone, showing a booking screen.",
+      "imageUrl": "https://images.unsplash.com/photo-1631016800686-1b3524982956?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxhcHAlMjBtb2NrdXAlMjBwaG9uZXxlbnwwfHx8fDE3NjY1Mzk1NTB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "app mockup phone"
+    },
+    {
+      "id": "driver-app-mockup",
+      "description": "A mockup of the ERITAS driver app on a smartphone, showing a route and passenger list.",
+      "imageUrl": "https://images.unsplash.com/photo-1762330914934-976533b1df84?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxhcHAlMjBpbnRlcmZhY2UlMjBuYXZpZ2F0aW9ufGVufDB8fHx8MTc2NjUzOTU1MHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "app interface navigation"
+    },
+    {
+      "id": "dashboard-mockup",
+      "description": "A mockup of the ERITAS admin dashboard, showing fleet status and analytics.",
+      "imageUrl": "https://images.unsplash.com/photo-1748609160056-7b95f30041f0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxkYXNoYm9hcmQlMjBhbmFseXRpY3N8ZW58MHx8fHwxNzY2NDU0ODAwfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "dashboard analytics"
+    },
+    {
+      "id": "about-page-image",
+      "description": "A diverse group of students smiling and walking on a university campus.",
+      "imageUrl": "https://images.unsplash.com/photo-1523240795612-9a054b0db644?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHx1bml2ZXJzaXR5JTIwc3R1ZGVudHN8ZW58MHx8fHwxNzY2NTE1Mzc0fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "university students"
+    },
+    {
+      "id": "contact-page-image",
+      "description": "A modern university building with greenery.",
+      "imageUrl": "https://images.unsplash.com/photo-1646059526194-a5fb83134aca?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8dW5pdmVyc2l0eSUyMGJ1aWxkaW5nfGVufDB8fHx8MTc2NjUzOTU1MHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "university building"
+    }
+  ]
 }

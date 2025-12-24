@@ -133,7 +133,7 @@ export default function ContactPage() {
                 <h3 className="font-headline text-2xl font-bold">Contact Information</h3>
                 <div className="flex items-center gap-4 text-muted-foreground">
                     <Mail className="h-5 w-5 text-primary"/>
-                    <span>pilot-program@eritas.co</span>
+                    <span>eritastransportservice@outlook.com</span>
                 </div>
                 <div className="flex items-center gap-4 text-muted-foreground">
                     <MapPin className="h-5 w-5 text-primary"/>

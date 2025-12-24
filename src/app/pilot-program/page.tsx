@@ -31,7 +31,7 @@ export default function PilotProgramPage() {
   return (
     <div className="container mx-auto px-4 py-16 md:py-24">
       <header className="text-center mb-16">
-        <h1 className="font-headline text-4xl md:text-5xl font-bold mb-4">University Pilot Program</h1>
+        <h1 className="font-headline text-4xl md:text-5xl font-bold mb-4">The Dynamic Change of University Transit Starts Here</h1>
         <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto">
           Be a part of shaping the future of transportation on our campus.
         </p>

@@ -27,7 +27,7 @@ export function Header() {
       <div className="container flex h-16 items-center">
         <div className="mr-4 hidden md:flex">
           <Link href="/" className="mr-6 flex items-center space-x-2">
-            <Image src="https://img.sanishtech.com/u/a26c366da4c6547e1d08ef12436d9afe.png" alt="ERITAS Logo" width={40} height={40} />
+            <Image src="https://img.sanishtech.com/u/a26c366da4c6547e1d08ef12436d9afe.png" alt="ERITAS Logo" width={50} height={50} />
           </Link>
           <nav className="flex items-center space-x-6 text-sm font-medium">
             {navLinks.map((link) => (
@@ -62,7 +62,7 @@ export function Header() {
               className="flex items-center space-x-2"
               onClick={() => setSheetOpen(false)}
             >
-              <Image src="https://img.sanishtech.com/u/a26c366da4c6547e1d08ef12436d9afe.png" alt="ERITAS Logo" width={32} height={32} />
+              <Image src="https://img.sanishtech.com/u/a26c366da4c6547e1d08ef12436d9afe.png" alt="ERITAS Logo" width={40} height={40} />
             </Link>
             <div className="my-4 h-[calc(100vh-8rem)] pb-10 pl-6">
               <div className="flex flex-col space-y-3">
@@ -91,7 +91,7 @@ export function Header() {
           </SheetContent>
         </Sheet>
         <Link href="/" className="md:hidden flex items-center space-x-2">
-            <Image src="https://img.sanishtech.com/u/a26c366da4c6547e1d08ef12436d9afe.png" alt="ERITAS Logo" width={32} height={32} />
+            <Image src="https://img.sanishtech.com/u/a26c366da4c6547e1d08ef12436d9afe.png" alt="ERITAS Logo" width={40} height={40} />
         </Link>
         <div className="flex flex-1 items-center justify-end space-x-2">
             <Button asChild className="hidden md:flex">

@@ -137,7 +137,7 @@ export default function ContactPage() {
                 </div>
                 <div className="flex items-center gap-4 text-muted-foreground">
                     <MapPin className="h-5 w-5 text-primary"/>
-                    <span>Main University Campus Hub</span>
+                    <span>UPSA Main Campus</span>
                 </div>
                 
                 <h3 className="font-headline text-2xl font-bold pt-6">Follow Us</h3>

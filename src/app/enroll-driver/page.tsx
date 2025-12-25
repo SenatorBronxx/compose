@@ -38,15 +38,22 @@ const formSchema = z.object({
 });
 
 const backgroundIcons = [
-    { icon: Music, className: "top-1/4 left-1/4" },
-    { icon: Flag, className: "top-1/2 left-1/3" },
-    { icon: MapPin, className: "top-3/4 left-1/2" },
-    { icon: Bus, className: "top-1/3 right-1/4" },
-    { icon: Check, className: "top-2/3 right-1/3" },
-    { icon: Ticket, className: "top-1/4 right-1/2" },
-    { icon: Bus, className: "bottom-1/4 left-10" },
-    { icon: Music, className: "top-10 right-10" },
-    { icon: MapPin, className: "bottom-1/2 right-1/4" },
+    { icon: Music, className: "top-[15%] left-[20%]" },
+    { icon: Flag, className: "top-[25%] left-[5%]" },
+    { icon: MapPin, className: "top-[40%] left-[25%]" },
+    { icon: Bus, className: "top-[10%] left-[45%]" },
+    { icon: Check, className: "top-[30%] left-[50%]" },
+    { icon: Ticket, className: "top-[50%] left-[10%]" },
+    { icon: Bus, className: "top-[5%] right-[20%]" },
+    { icon: Music, className: "top-[20%] right-[10%]" },
+    { icon: MapPin, className: "top-[35%] right-[25%]" },
+    { icon: Flag, className: "top-[55%] right-[5%]" },
+    { icon: Ticket, className: "top-[70%] right-[20%]" },
+    { icon: Check, className: "top-[85%] right-[15%]" },
+    { icon: Bus, className: "bottom-[5%] left-[40%]" },
+    { icon: Music, className: "bottom-[15%] left-[15%]" },
+    { icon: MapPin, className: "bottom-[20%] right-[30%]" },
+    { icon: Flag, className: "bottom-[10%] right-[50%]" },
 ];
 
 export default function EnrollDriverPage() {
@@ -82,7 +89,7 @@ export default function EnrollDriverPage() {
                         key={index}
                         className={cn(
                             "absolute text-foreground/50 transform -translate-x-1/2 -translate-y-1/2",
-                            "h-24 w-24 md:h-32 md:w-32",
+                            "h-12 w-12 md:h-16 md:w-16",
                             item.className
                         )}
                     />

@@ -38,22 +38,43 @@ const onboardingSteps = [
 
 const faqs = [
     {
-      question: "What are the vehicle requirements?",
-      answer: "Vehicles must be 4-door, in good condition, and pass a basic inspection. Specific model year requirements may apply."
+        question: "What is ERITAS?",
+        answer: "ERITAS is a smart bus transport system that modernizes Ghana’s trotro experience using technology. It helps drivers get organized trips, guaranteed passengers, digital payments, and better daily earnings."
     },
     {
-      question: "How are drivers paid?",
-      answer: "Earnings are calculated based on time and distance for each trip. Payments are deposited directly into your bank account on a weekly basis."
+        question: "Who can register as an ERITAS driver?",
+        answer: "Only verified drivers approved by ERITAS can operate on the platform. You must: Have a valid driver’s license, Be assigned to an ERITAS-registered bus, Complete ERITAS onboarding, and Receive a driver registration code from ERITAS."
     },
     {
-      question: "Can I set my own hours?",
-      answer: "Yes, absolutely. As an ERITAS driver, you have the flexibility to drive whenever it fits your schedule. Just log into the app and start accepting rides."
+        question: "Why do I need a registration code to sign up?",
+        answer: "The registration code links you to a specific bus, confirms you are the rightful driver, and automatically loads your bus details (plate number, seats, route). This prevents fraud and ensures accountability."
     },
     {
-      question: "Is there insurance coverage?",
-      answer: "ERITAS provides commercial auto insurance that covers you from the moment you accept a ride request until the ride ends."
+        question: "Do I need my own bus to join ERITAS?",
+        answer: "Not necessarily. Some buses are company-managed, and some are owner-partner buses. You will only drive buses officially registered with ERITAS."
+    },
+    {
+        question: "How do I get paid?",
+        answer: "Drivers are paid through the ERITAS Pay wallet with weekly or daily settlements, depending on the policy. Passengers pay digitally, reducing cash handling and disputes."
+    },
+    {
+        question: "Do passengers still pay with cash?",
+        answer: "During the pilot, payments will be mostly digital, though limited cash (logged by the app) will be allowed. The long-term goal is a fully cashless system."
+    },
+    {
+        question: "How does boarding work?",
+        answer: "Passengers reserve seats via the app and are verified upon boarding. The driver app shows who has booked, available seats, and the total number of passengers onboard."
+    },
+    {
+        question: "What happens if a passenger books but doesn’t show up?",
+        answer: "There’s a grace period, after which the seat is released. This ensures no delay to your trip."
+    },
+    {
+        question: "Will the app distract me while driving?",
+        answer: "No. The driver app is designed to be minimal, voice-assisted, and hands-free during driving. Most actions happen before or after trips."
     }
-  ]
+];
+
 
 export default function DriversPage() {
   return (

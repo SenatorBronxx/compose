@@ -5,7 +5,6 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 import { Bus, Check, Flag, MapPin, Music, Ticket } from 'lucide-react';
-import { addDoc, collection } from 'firebase/firestore';
 
 import { Button } from '@/components/ui/button';
 import {
@@ -21,7 +20,6 @@ import { Input } from '@/components/ui/input';
 import { useToast } from '@/hooks/use-toast';
 import { ScrollAnimation } from '@/components/ui/scroll-animation';
 import { cn } from '@/lib/utils';
-import { useFirestore } from '@/firebase';
 
 const formSchema = z.object({
   fullName: z.string().min(2, {
@@ -60,7 +58,6 @@ const backgroundIcons = [
 
 export default function EnrollDriverPage() {
   const { toast } = useToast();
-  const firestore = useFirestore();
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -73,33 +70,13 @@ export default function EnrollDriverPage() {
   });
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
-    if (!firestore) {
-        toast({
-            variant: 'destructive',
-            title: 'Error',
-            description: 'Database not available. Please try again later.',
-        });
-        return;
-    }
-    
-    try {
-        const { certificate, ...applicationData } = values;
-        // In a real application, you would handle file uploads separately, e.g., to Firebase Storage
-        await addDoc(collection(firestore, 'driver-applications'), applicationData);
-
-        toast({
-            title: 'Application Submitted!',
-            description: 'Thank you for your interest. We will review your application and get back to you soon.',
-        });
-        form.reset();
-    } catch (error) {
-        console.error("Error submitting application:", error);
-        toast({
-            variant: 'destructive',
-            title: 'Uh oh! Something went wrong.',
-            description: 'Could not submit your application. Please try again.',
-        });
-    }
+    // In a real application, you would handle file uploads and send data to a server.
+    console.log('Form values:', values);
+    toast({
+        title: 'Application Submitted!',
+        description: 'Thank you for your interest. We will review your application and get back to you soon.',
+    });
+    form.reset();
   }
 
   return (

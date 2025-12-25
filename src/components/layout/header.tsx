@@ -62,7 +62,7 @@ export function Header() {
               className="flex items-center space-x-2"
               onClick={() => setSheetOpen(false)}
             >
-              <Image src="https://img.sanishtech.com/u/a26c366da4c6547e1d08ef12436d9afe.png" alt="ERITAS Logo" width={50} height={50} />
+              <Image src="https://img.sanishtech.com/u/a26c366da4c6547e1d08ef12436d9afe.png" alt="ERITAS Logo" width={60} height={60} />
             </Link>
             <div className="my-4 h-[calc(100vh-8rem)] pb-10 pl-6">
               <div className="flex flex-col space-y-3">
@@ -85,17 +85,17 @@ export function Header() {
             </div>
             <div className="pl-6">
                  <Button asChild className="w-full">
-                    <Link href="/contact">Join Now</Link>
+                    <Link href="/enroll-driver">Enroll Now</Link>
                 </Button>
             </div>
           </SheetContent>
         </Sheet>
         <Link href="/" className="md:hidden flex items-center space-x-2">
-            <Image src="https://img.sanishtech.com/u/a26c366da4c6547e1d08ef12436d9afe.png" alt="ERITAS Logo" width={50} height={50} />
+            <Image src="https://img.sanishtech.com/u/a26c366da4c6547e1d08ef12436d9afe.png" alt="ERITAS Logo" width={60} height={60} />
         </Link>
         <div className="flex flex-1 items-center justify-end space-x-2">
             <Button asChild className="hidden md:flex">
-                <Link href="/contact">Join Now</Link>
+                <Link href="/enroll-driver">Enroll Now</Link>
             </Button>
         </div>
       </div>

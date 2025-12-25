@@ -162,7 +162,7 @@ export default function DriversPage() {
               Join our team of drivers and start earning on your terms.
           </p>
           <Button asChild size="lg" variant="secondary" className="bg-background text-foreground hover:bg-background/90">
-              <Link href="/contact">Apply Now</Link>
+              <Link href="/enroll-driver">Apply Now</Link>
           </Button>
         </section>
       </ScrollAnimation>

@@ -47,7 +47,7 @@ export default function EnrollDriverPage() {
     },
   });
 
-  function onSubmit(values: z.infer<typeof formSchema>>) {
+  function onSubmit(values: z.infer<typeof formSchema>) {
     // In a real application, you would handle file uploads and send data to a server.
     console.log('Form values:', values);
     toast({

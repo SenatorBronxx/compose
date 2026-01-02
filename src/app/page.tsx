@@ -90,7 +90,7 @@ export default function Home() {
         <div className="container mx-auto px-4">
           <ScrollAnimation>
             <h2 className="font-headline text-3xl md:text-4xl font-bold text-center mb-12">
-              Smarter Travel, Better Campus Life
+              Smarter Travel, Better Commuting life
             </h2>
           </ScrollAnimation>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">

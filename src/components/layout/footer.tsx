@@ -1,3 +1,4 @@
+
 import { Button } from "@/components/ui/button";
 import { Facebook, Instagram, Linkedin, Twitter } from "lucide-react";
 import Image from "next/image";
@@ -7,7 +8,6 @@ const navLinks = [
     { href: "/about", label: "About" },
     { href: "/drivers", label: "Drivers" },
     { href: "/pilot-program", label: "Pilot" },
-    { href: "/contact", label: "Contact" },
   ];
 
 const socialLinks = [

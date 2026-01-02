@@ -1,3 +1,4 @@
+
 /**
  * @fileoverview Firestore Security Rules
  * @author service-account
@@ -12,7 +13,6 @@
  * Data Structure:
  * The data is organized into three separate, flat, top-level collections:
  * - /telemetry_data: For anonymous website usage metrics.
- * - /contact_form_submissions: For messages sent via the contact form.
  * - /driver_applications: For applications from prospective drivers.
  * This segregation allows for simple, homogenous security rules per collection.
  *
@@ -77,23 +77,6 @@ service cloud.firestore {
      * @principle Implements a "dropbox" pattern for public, write-once data submission.
      */
     match /telemetry_data/{telemetryId} {
-      allow get: if false;
-      allow list: if false;
-      allow create: if true;
-      allow update: if false;
-      allow delete: if false;
-    }
-
-    /**
-     * @description Allows any client to submit a contact form. Prevents anyone
-     *              from reading other submissions to protect sensitive personal
-     *              information like names and email addresses.
-     * @path /contact_form_submissions/{submissionId}
-     * @allow An anonymous website visitor (create) a new contact form submission.
-     * @deny Any user (get, list, update, delete) any submission.
-     * @principle Implements a "dropbox" pattern for public, write-once data submission.
-     */
-    match /contact_form_submissions/{submissionId} {
       allow get: if false;
       allow list: if false;
       allow create: if true;

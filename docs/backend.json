@@ -1,3 +1,4 @@
+
 {
   "entities": {
     "SurveyResponse": {
@@ -158,43 +159,6 @@
         "pageView"
       ]
     },
-    "ContactFormSubmission": {
-      "$schema": "http://json-schema.org/draft-07/schema#",
-      "title": "ContactFormSubmission",
-      "type": "object",
-      "description": "Represents data submitted through the contact form.",
-      "properties": {
-        "id": {
-          "type": "string",
-          "description": "Unique identifier for the contact form submission."
-        },
-        "submissionDate": {
-          "type": "string",
-          "description": "Date and time the form was submitted.",
-          "format": "date-time"
-        },
-        "name": {
-          "type": "string",
-          "description": "Name of the person submitting the form."
-        },
-        "email": {
-          "type": "string",
-          "description": "Email address of the person submitting the form.",
-          "format": "email"
-        },
-        "message": {
-          "type": "string",
-          "description": "The message content from the contact form."
-        }
-      },
-      "required": [
-        "id",
-        "submissionDate",
-        "name",
-        "email",
-        "message"
-      ]
-    },
     "DriverApplication": {
       "$schema": "http://json-schema.org/draft-07/schema#",
       "title": "DriverApplication",
@@ -264,12 +228,6 @@
         "$ref": "#/backend/entities/TelemetryData"
       },
       "description": "Stores website telemetry data. No denormalized authorization fields are needed as access is likely public write."
-    },
-    "/contact_form_submissions/{submissionId}": {
-      "schema": {
-        "$ref": "#/backend/entities/ContactFormSubmission"
-      },
-      "description": "Stores contact form submissions. No denormalized authorization fields are needed as access is likely public write."
     },
     "/driver_applications/{applicationId}": {
       "schema": {

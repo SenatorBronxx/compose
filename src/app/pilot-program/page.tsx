@@ -76,7 +76,7 @@ export default function PilotProgramPage() {
                         </CardHeader>
                         <CardContent>
                             <p className="text-muted-foreground text-lg">
-                                This pilot is initially open to all <span className="font-semibold text-primary">students and faculty members</span> of the university. We're looking for frequent commuters, late-night studiers, and everyone in between to help us test all aspects of the service.
+                                This pilot will initially be open to all <span className="font-semibold text-primary">students and faculty members</span> of the university. We will be looking for frequent commuters to test our service, which will operate from designated pick-up points to the university premises.
                             </p>
                         </CardContent>
                     </Card>

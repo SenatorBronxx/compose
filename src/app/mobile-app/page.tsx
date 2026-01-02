@@ -135,7 +135,7 @@ export default function MobileAppPage() {
           </ScrollAnimation>
     
           <ScrollAnimation>
-            <div className="bg-accent text-accent-foreground rounded-lg p-6 md:p-8 text-center mb-16">
+            <div className="bg-accent text-accent-foreground rounded-lg p-6 md:p-8 text-center mb-16 animate-glow">
                 <h2 className="font-headline text-3xl font-bold mb-2">Coming Soon!</h2>
                 <p className="text-lg">Our mobile apps are under development and will be launching with our pilot program.</p>
             </div>

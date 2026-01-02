@@ -1,5 +1,117 @@
 {
   "entities": {
+    "SurveyResponse": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "SurveyResponse",
+      "type": "object",
+      "description": "Represents a single submission from the student transport experience survey.",
+      "properties": {
+        "submittedAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "The timestamp when the survey was submitted."
+        },
+        "commuteMethod": {
+          "type": "string",
+          "description": "Primary method of commuting to and from campus."
+        },
+        "commuteDays": {
+          "type": "string",
+          "description": "Number of days per week the user commutes."
+        },
+        "leaveTime": {
+          "type": "string",
+          "description": "Typical time the user leaves campus."
+        },
+        "painPoints": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Frustrations with current transport options."
+        },
+        "overcrowdingFrequency": {
+          "type": "string",
+          "description": "How often the user experiences overcrowded vehicles."
+        },
+        "boardingStress": {
+          "type": "string",
+          "description": "Stress level associated with boarding transport."
+        },
+        "useApp": {
+          "type": "string",
+          "description": "Likelihood of using a smart transit mobile app."
+        },
+        "seatAvailabilityImportance": {
+          "type": "string",
+          "description": "Importance of knowing seat availability beforehand."
+        },
+        "preBook": {
+          "type": "string",
+          "description": "Preference for pre-booking a seat."
+        },
+        "features": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Most desired features in a transit app."
+        },
+        "musicAppeal": {
+          "type": "string",
+          "description": "Appeal of having music during trips."
+        },
+        "suggestMusic": {
+          "type": "string",
+          "description": "Interest in suggesting music during trips."
+        },
+        "tripPrice": {
+          "type": "string",
+          "description": "Current average cost per trip."
+        },
+        "useWallet": {
+          "type": "string",
+          "description": "Willingness to use a prepaid wallet for payments."
+        },
+        "payForSeat": {
+          "type": "string",
+          "description": "Willingness to pay more for a guaranteed seat."
+        },
+        "joinPilot": {
+          "type": "string",
+          "description": "Interest in joining the pilot program."
+        },
+        "earlyAccess": {
+          "type": "string",
+          "description": "Interest in early access to the app."
+        },
+        "recommend": {
+          "type": "string",
+          "description": "Likelihood of recommending the service to others."
+        }
+      },
+      "required": [
+        "submittedAt",
+        "commuteMethod",
+        "commuteDays",
+        "leaveTime",
+        "painPoints",
+        "overcrowdingFrequency",
+        "boardingStress",
+        "useApp",
+        "seatAvailabilityImportance",
+        "preBook",
+        "features",
+        "musicAppeal",
+        "suggestMusic",
+        "tripPrice",
+        "useWallet",
+        "payForSeat",
+        "joinPilot",
+        "earlyAccess",
+        "recommend"
+      ]
+    },
     "TelemetryData": {
       "$schema": "http://json-schema.org/draft-07/schema#",
       "title": "TelemetryData",
@@ -141,56 +253,29 @@
     ]
   },
   "firestore": {
-    "structure": [
-      {
-        "path": "/telemetry_data/{telemetryId}",
-        "definition": {
-          "entityName": "TelemetryData",
-          "schema": {
-            "$ref": "#/backend/entities/TelemetryData"
-          },
-          "description": "Stores website telemetry data.  No denormalized authorization fields are needed as access is likely public write.",
-          "params": [
-            {
-              "name": "telemetryId",
-              "description": "Unique identifier for the telemetry data record."
-            }
-          ]
-        }
+    "/survey-responses/{responseId}": {
+      "schema": {
+        "$ref": "#/backend/entities/SurveyResponse"
       },
-      {
-        "path": "/contact_form_submissions/{submissionId}",
-        "definition": {
-          "entityName": "ContactFormSubmission",
-          "schema": {
-            "$ref": "#/backend/entities/ContactFormSubmission"
-          },
-          "description": "Stores contact form submissions.  No denormalized authorization fields are needed as access is likely public write.",
-          "params": [
-            {
-              "name": "submissionId",
-              "description": "Unique identifier for the contact form submission."
-            }
-          ]
-        }
+      "description": "Stores individual responses from the student transport survey."
+    },
+    "/telemetry_data/{telemetryId}": {
+      "schema": {
+        "$ref": "#/backend/entities/TelemetryData"
       },
-      {
-        "path": "/driver_applications/{applicationId}",
-        "definition": {
-          "entityName": "DriverApplication",
-          "schema": {
-            "$ref": "#/backend/entities/DriverApplication"
-          },
-          "description": "Stores driver applications. No denormalized authorization fields are needed as access is likely public write.",
-          "params": [
-            {
-              "name": "applicationId",
-              "description": "Unique identifier for the driver application."
-            }
-          ]
-        }
-      }
-    ],
-    "reasoning": "Given the requirement to view results directly in Firebase and the nature of the entities (telemetry data, contact form submissions, driver applications), a flat collection structure is suitable. This simplifies querying and avoids unnecessary complexity for the relatively simple data relationships. Authorization independence isn't a major concern here as these are mostly data capture scenarios where access control is minimal (likely only write access with potential review access for admins). However, if access controls become more granular in the future, denormalization of authorization data will be required.\n\nThe solution segregates the different types of data into separate collections (`telemetry_data`, `contact_form_submissions`, `driver_applications`) to maintain a homogeneous security posture. This segregation ensures that rules can be applied consistently to all documents within each collection.\n\nSince all the collections are designed to capture information (telemetry, applications and submissions), no extra roles or authorization is required besides the write rules. Thus, this design avoids authorization dependencies and supports basic QAPs by segregating data types into dedicated collections."
+      "description": "Stores website telemetry data. No denormalized authorization fields are needed as access is likely public write."
+    },
+    "/contact_form_submissions/{submissionId}": {
+      "schema": {
+        "$ref": "#/backend/entities/ContactFormSubmission"
+      },
+      "description": "Stores contact form submissions. No denormalized authorization fields are needed as access is likely public write."
+    },
+    "/driver_applications/{applicationId}": {
+      "schema": {
+        "$ref": "#/backend/entities/DriverApplication"
+      },
+      "description": "Stores driver applications. No denormalized authorization fields are needed as access is likely public write."
+    }
   }
 }

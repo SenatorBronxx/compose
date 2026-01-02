@@ -26,6 +26,9 @@ import { Checkbox } from '@/components/ui/checkbox';
 import { useToast } from '@/hooks/use-toast';
 import { ScrollAnimation } from '@/components/ui/scroll-animation';
 import { Label } from '@/components/ui/label';
+import { useFirestore, addDocumentNonBlocking } from '@/firebase';
+import { collection, serverTimestamp } from 'firebase/firestore';
+
 
 // Zod validation schema
 const surveySchema = z.object({
@@ -96,6 +99,7 @@ const featureItems = [
 
 export default function StudentTransportSurvey() {
   const { toast } = useToast();
+  const firestore = useFirestore();
 
   // Initialize form
   const form = useForm<SurveyFormData>({
@@ -123,16 +127,27 @@ export default function StudentTransportSurvey() {
   });
 
   // Handle form submission
-  const onSubmit = (data: SurveyFormData) => {
-    console.log('Survey submitted:', data);
-    toast({
-      title: 'Thank you for your feedback!',
-      description: 'Your responses have been recorded successfully.',
-      variant: 'default',
-    });
-    // In a real application, you would send data to your backend here
-    // For now, we'll just reset the form
-    form.reset();
+  const onSubmit = async (data: SurveyFormData) => {
+    try {
+      const responsesCollection = collection(firestore, 'survey-responses');
+      await addDocumentNonBlocking(responsesCollection, {
+        ...data,
+        submittedAt: serverTimestamp(),
+      });
+      toast({
+        title: 'Thank you for your feedback!',
+        description: 'Your responses have been recorded successfully.',
+        variant: 'default',
+      });
+      form.reset();
+    } catch (error) {
+      console.error("Error submitting survey:", error);
+      toast({
+        title: 'Submission Failed',
+        description: 'There was an error submitting your survey. Please try again.',
+        variant: 'destructive',
+      });
+    }
   };
 
   return (
@@ -1172,5 +1187,3 @@ export default function StudentTransportSurvey() {
     </div>
   );
 }
-
-    

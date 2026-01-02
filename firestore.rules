@@ -51,6 +51,23 @@ service cloud.firestore {
     // ------------------------------------------------------------------------
 
     /**
+     * @description Allows any client to submit a survey response anonymously.
+     *              Prevents anyone from reading, updating, or deleting this data
+     *              to ensure privacy and data integrity.
+     * @path /survey-responses/{responseId}
+     * @allow An anonymous website visitor (create) a new survey response.
+     * @deny Any user (get, list, update, delete) any survey response.
+     * @principle Implements a "dropbox" pattern for public, write-once data submission.
+     */
+    match /survey-responses/{responseId} {
+      allow get: if false;
+      allow list: if false;
+      allow create: if true;
+      allow update: if false;
+      allow delete: if false;
+    }
+
+    /**
      * @description Allows any client to submit anonymous website telemetry data.
      *              Prevents anyone from reading, updating, or deleting this data
      *              to ensure privacy and data integrity.

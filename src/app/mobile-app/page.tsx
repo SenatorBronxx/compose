@@ -1,3 +1,5 @@
+
+import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import { ScrollAnimation } from "@/components/ui/scroll-animation";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -88,13 +90,21 @@ export default function MobileAppPage() {
   return (
     <div className="container mx-auto px-4 py-16 md:py-24">
       <ScrollAnimation>
-        <header className="text-center mb-16">
+        <header className="text-center mb-12">
           <h1 className="font-headline text-4xl md:text-5xl font-bold mb-4">The ERITAS App</h1>
           <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto">
             One platform, two experiences. Powerful tools for both passengers and drivers, right at your fingertips.
           </p>
         </header>
       </ScrollAnimation>
+
+      <ScrollAnimation>
+        <div className="bg-accent text-accent-foreground rounded-lg p-6 md:p-8 text-center mb-16">
+            <h2 className="font-headline text-3xl font-bold mb-2">Coming Soon!</h2>
+            <p className="text-lg">Our mobile apps are under development and will be launching with our pilot program.</p>
+        </div>
+      </ScrollAnimation>
+
 
       <ScrollAnimation>
         <Tabs defaultValue="passenger" className="w-full">

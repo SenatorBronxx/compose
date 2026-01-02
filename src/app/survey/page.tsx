@@ -217,14 +217,6 @@ export default function StudentTransportSurvey() {
                             </FormItem>
                             <FormItem className="flex items-center space-x-3">
                               <FormControl>
-                                <RadioGroupItem value="school-shuttle" />
-                              </FormControl>
-                              <FormLabel className="font-normal">
-                                University shuttle
-                              </FormLabel>
-                            </FormItem>
-                            <FormItem className="flex items-center space-x-3">
-                              <FormControl>
                                 <RadioGroupItem value="bicycle" />
                               </FormControl>
                               <FormLabel className="font-normal">

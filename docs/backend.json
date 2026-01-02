@@ -1,48 +1,196 @@
-
 {
   "entities": {
-    "DriverApplication": {
-      "title": "Driver Application",
-      "description": "Represents a driver's application to join the service.",
+    "TelemetryData": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "TelemetryData",
       "type": "object",
+      "description": "Represents anonymous telemetry data captured from website traffic.",
       "properties": {
-        "fullName": {
+        "id": {
           "type": "string",
-          "description": "The full name of the applicant."
+          "description": "Unique identifier for the telemetry data record."
         },
-        "email": {
+        "timestamp": {
           "type": "string",
-          "format": "email",
-          "description": "The email address of the applicant."
+          "description": "Timestamp of when the telemetry data was recorded.",
+          "format": "date-time"
         },
-        "licenseNumber": {
+        "pageView": {
           "type": "string",
-          "description": "The applicant's driver's license number."
+          "description": "The URL or route of the page visited."
         },
-        "ghanaCardNumber": {
+        "userAgent": {
           "type": "string",
-          "description": "The applicant's Ghana Card number."
+          "description": "User agent string of the browser used."
+        },
+        "ipAddress": {
+          "type": "string",
+          "description": "IP address of the user (anonymized for privacy)."
+        },
+        "deviceType": {
+          "type": "string",
+          "description": "Type of device used (e.g., desktop, mobile, tablet)."
+        },
+        "operatingSystem": {
+          "type": "string",
+          "description": "Operating system used (e.g., Windows, macOS, iOS, Android)."
+        },
+        "location": {
+          "type": "string",
+          "description": "Geographic location based on IP address (coarse-grained)."
         }
       },
       "required": [
-        "fullName",
+        "id",
+        "timestamp",
+        "pageView"
+      ]
+    },
+    "ContactFormSubmission": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "ContactFormSubmission",
+      "type": "object",
+      "description": "Represents data submitted through the contact form.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the contact form submission."
+        },
+        "submissionDate": {
+          "type": "string",
+          "description": "Date and time the form was submitted.",
+          "format": "date-time"
+        },
+        "name": {
+          "type": "string",
+          "description": "Name of the person submitting the form."
+        },
+        "email": {
+          "type": "string",
+          "description": "Email address of the person submitting the form.",
+          "format": "email"
+        },
+        "message": {
+          "type": "string",
+          "description": "The message content from the contact form."
+        }
+      },
+      "required": [
+        "id",
+        "submissionDate",
+        "name",
         "email",
-        "licenseNumber",
-        "ghanaCardNumber"
+        "message"
+      ]
+    },
+    "DriverApplication": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "DriverApplication",
+      "type": "object",
+      "description": "Represents a driver application submitted through the driver recruitment page.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the driver application."
+        },
+        "applicationDate": {
+          "type": "string",
+          "description": "Date and time the application was submitted.",
+          "format": "date-time"
+        },
+        "firstName": {
+          "type": "string",
+          "description": "First name of the applicant."
+        },
+        "lastName": {
+          "type": "string",
+          "description": "Last name of the applicant."
+        },
+        "email": {
+          "type": "string",
+          "description": "Email address of the applicant.",
+          "format": "email"
+        },
+        "phone": {
+          "type": "string",
+          "description": "Phone number of the applicant."
+        },
+        "licenseNumber": {
+          "type": "string",
+          "description": "Driver's license number."
+        },
+        "experienceYears": {
+          "type": "number",
+          "description": "Years of driving experience."
+        }
+      },
+      "required": [
+        "id",
+        "applicationDate",
+        "firstName",
+        "lastName",
+        "email",
+        "licenseNumber"
       ]
     }
   },
   "auth": {
     "providers": [
+      "password",
       "anonymous"
     ]
   },
   "firestore": {
-    "/driver-applications/{applicationId}": {
-      "schema": {
-        "$ref": "#/backend/entities/DriverApplication"
+    "structure": [
+      {
+        "path": "/telemetry_data/{telemetryId}",
+        "definition": {
+          "entityName": "TelemetryData",
+          "schema": {
+            "$ref": "#/backend/entities/TelemetryData"
+          },
+          "description": "Stores website telemetry data.  No denormalized authorization fields are needed as access is likely public write.",
+          "params": [
+            {
+              "name": "telemetryId",
+              "description": "Unique identifier for the telemetry data record."
+            }
+          ]
+        }
       },
-      "description": "Stores all driver applications submitted through the website."
-    }
+      {
+        "path": "/contact_form_submissions/{submissionId}",
+        "definition": {
+          "entityName": "ContactFormSubmission",
+          "schema": {
+            "$ref": "#/backend/entities/ContactFormSubmission"
+          },
+          "description": "Stores contact form submissions.  No denormalized authorization fields are needed as access is likely public write.",
+          "params": [
+            {
+              "name": "submissionId",
+              "description": "Unique identifier for the contact form submission."
+            }
+          ]
+        }
+      },
+      {
+        "path": "/driver_applications/{applicationId}",
+        "definition": {
+          "entityName": "DriverApplication",
+          "schema": {
+            "$ref": "#/backend/entities/DriverApplication"
+          },
+          "description": "Stores driver applications. No denormalized authorization fields are needed as access is likely public write.",
+          "params": [
+            {
+              "name": "applicationId",
+              "description": "Unique identifier for the driver application."
+            }
+          ]
+        }
+      }
+    ],
+    "reasoning": "Given the requirement to view results directly in Firebase and the nature of the entities (telemetry data, contact form submissions, driver applications), a flat collection structure is suitable. This simplifies querying and avoids unnecessary complexity for the relatively simple data relationships. Authorization independence isn't a major concern here as these are mostly data capture scenarios where access control is minimal (likely only write access with potential review access for admins). However, if access controls become more granular in the future, denormalization of authorization data will be required.\n\nThe solution segregates the different types of data into separate collections (`telemetry_data`, `contact_form_submissions`, `driver_applications`) to maintain a homogeneous security posture. This segregation ensures that rules can be applied consistently to all documents within each collection.\n\nSince all the collections are designed to capture information (telemetry, applications and submissions), no extra roles or authorization is required besides the write rules. Thus, this design avoids authorization dependencies and supports basic QAPs by segregating data types into dedicated collections."
   }
 }

@@ -1,0 +1,104 @@
+/**
+ * @fileoverview Firestore Security Rules
+ * @author service-account
+ *
+ * @description
+ * This ruleset implements a "dropbox" or "write-only" security model for a data
+ * capture application. The core philosophy is to allow any client, including
+ * anonymous website visitors, to submit data to specific collections, but strictly
+ * prohibit them from reading, updating, or deleting any data, ensuring user privacy
+ * and data integrity after submission.
+ *
+ * Data Structure:
+ * The data is organized into three separate, flat, top-level collections:
+ * - /telemetry_data: For anonymous website usage metrics.
+ * - /contact_form_submissions: For messages sent via the contact form.
+ * - /driver_applications: For applications from prospective drivers.
+ * This segregation allows for simple, homogenous security rules per collection.
+ *
+ * Key Security Decisions:
+ * - Public Create Access: Any user (authenticated or anonymous) can create documents
+ *   in the designated collections. This is essential for a public-facing website
+ *   that needs to capture data from visitors.
+ * - No Read Access: All read operations (get, list) from the client SDKs are
+ *   explicitly denied. This is critical to protect the privacy of submitted
+ *   information (e.g., one user cannot see another's contact submission).
+ * - Immutability: Once a document is created, it cannot be modified or deleted by
+ *   any client. This prevents tampering with submitted data.
+ * - Admin Access: Administrative tasks like viewing and managing submitted data are
+ *   intended to be performed through the Google Cloud Console or Admin SDK, which
+ *   bypasses these client-facing security rules.
+ */
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // ------------------------------------------------------------------------
+    // Helper Functions
+    // ------------------------------------------------------------------------
+
+    /**
+     * isSignedIn
+     * @description Checks if the user is authenticated.
+     * @returns {boolean} True if a user is signed in.
+     */
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    // ------------------------------------------------------------------------
+    // Collection Rules
+    // ------------------------------------------------------------------------
+
+    /**
+     * @description Allows any client to submit anonymous website telemetry data.
+     *              Prevents anyone from reading, updating, or deleting this data
+     *              to ensure privacy and data integrity.
+     * @path /telemetry_data/{telemetryId}
+     * @allow An anonymous website visitor (create) a new telemetry record.
+     * @deny Any user (get, list, update, delete) any telemetry record.
+     * @principle Implements a "dropbox" pattern for public, write-once data submission.
+     */
+    match /telemetry_data/{telemetryId} {
+      allow get: if false;
+      allow list: if false;
+      allow create: if true;
+      allow update: if false;
+      allow delete: if false;
+    }
+
+    /**
+     * @description Allows any client to submit a contact form. Prevents anyone
+     *              from reading other submissions to protect sensitive personal
+     *              information like names and email addresses.
+     * @path /contact_form_submissions/{submissionId}
+     * @allow An anonymous website visitor (create) a new contact form submission.
+     * @deny Any user (get, list, update, delete) any submission.
+     * @principle Implements a "dropbox" pattern for public, write-once data submission.
+     */
+    match /contact_form_submissions/{submissionId} {
+      allow get: if false;
+      allow list: if false;
+      allow create: if true;
+      allow update: if false;
+      allow delete: if false;
+    }
+
+    /**
+     * @description Allows any client to submit a driver application. Prevents
+     *              anyone from reading other applications to protect sensitive
+     *              personal information.
+     * @path /driver_applications/{applicationId}
+     * @allow An anonymous website visitor (create) a new driver application.
+     * @deny Any user (get, list, update, delete) any application.
+     * @principle Implements a "dropbox" pattern for public, write-once data submission.
+     */
+    match /driver_applications/{applicationId} {
+      allow get: if false;
+      allow list: if false;
+      allow create: if true;
+      allow update: if false;
+      allow delete: if false;
+    }
+  }
+}

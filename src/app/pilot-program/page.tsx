@@ -7,6 +7,7 @@ import { ScrollAnimation } from "@/components/ui/scroll-animation";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
 import { Calendar, Map, Users } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 
 const timelinePhases = [
     {
@@ -50,9 +51,14 @@ export default function PilotProgramPage() {
                 </h1>
               </ScrollAnimation>
               <ScrollAnimation delay={0.1}>
-                <p className="text-lg md:text-xl text-primary-foreground/80">
+                <p className="text-lg md:text-xl text-primary-foreground/80 mb-8">
                     Be a part of shaping the future of transportation on our campus.
                 </p>
+              </ScrollAnimation>
+              <ScrollAnimation delay={0.2}>
+                <Button asChild size="lg">
+                  <Link href="/survey">Take the Survey</Link>
+                </Button>
               </ScrollAnimation>
             </div>
         </section>

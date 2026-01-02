@@ -134,19 +134,18 @@ export default function StudentTransportSurvey() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white py-8 px-4">
-      <div className="container mx-auto max-w-4xl">
+    <div className="container mx-auto px-4 py-16 md:py-24">
         <ScrollAnimation>
           <header className="text-center mb-12">
-            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+            <h1 className="font-headline text-4xl md:text-5xl font-bold mb-4">
               Student Transport Experience Survey
             </h1>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
               Help us understand your commuting challenges and preferences. 
               Your feedback will directly influence future transport improvements on campus.
             </p>
-            <div className="mt-6 p-4 bg-blue-50 rounded-lg border border-blue-200">
-              <p className="text-sm text-gray-700">
+            <div className="mt-6 p-3 bg-card rounded-lg border">
+              <p className="text-sm text-muted-foreground">
                 All responses are anonymous
               </p>
             </div>
@@ -154,18 +153,18 @@ export default function StudentTransportSurvey() {
         </ScrollAnimation>
 
         <Form {...form}>
-          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-12">
             
             {/* Section 1: Commuting Habits */}
             <ScrollAnimation delay={0.1}>
-              <Card className="border-2 border-blue-100">
-                <CardHeader className="bg-blue-50 border-b border-blue-100">
-                  <CardTitle className="text-2xl text-blue-800">Section 1: Your Commuting Habits</CardTitle>
-                  <CardDescription className="text-gray-600">
+              <Card>
+                <CardHeader>
+                  <CardTitle>Section 1: Your Commuting Habits</CardTitle>
+                  <CardDescription>
                     Tell us about your daily travel patterns and routines
                   </CardDescription>
                 </CardHeader>
-                <CardContent className="pt-6 space-y-8">
+                <CardContent className="space-y-8">
                   
                   {/* Question 1: How do you usually commute? */}
                   <FormField
@@ -173,68 +172,68 @@ export default function StudentTransportSurvey() {
                     name="commuteMethod"
                     render={({ field }) => (
                       <FormItem className="space-y-4">
-                        <FormLabel className="text-lg font-semibold text-gray-800">
+                        <FormLabel className="text-lg font-semibold">
                           1. How do you usually commute to and from campus?
                         </FormLabel>
                         <FormControl>
                           <RadioGroup
                             onValueChange={field.onChange}
                             value={field.value}
-                            className="space-y-3"
+                            className="space-y-2"
                           >
-                            <FormItem className="flex items-center space-x-3 p-3 hover:bg-gray-50 rounded-lg transition-colors">
+                            <FormItem className="flex items-center space-x-3">
                               <FormControl>
                                 <RadioGroupItem value="trotro" />
                               </FormControl>
-                              <FormLabel className="font-medium text-gray-700 cursor-pointer">
+                              <FormLabel className="font-normal">
                                 Trotro (Public minibus)
                               </FormLabel>
                             </FormItem>
-                            <FormItem className="flex items-center space-x-3 p-3 hover:bg-gray-50 rounded-lg transition-colors">
+                            <FormItem className="flex items-center space-x-3">
                               <FormControl>
                                 <RadioGroupItem value="ride-hailing" />
                               </FormControl>
-                              <FormLabel className="font-medium text-gray-700 cursor-pointer">
+                              <FormLabel className="font-normal">
                                 Ride-hailing apps (Bolt, Uber, Yango)
                               </FormLabel>
                             </FormItem>
-                            <FormItem className="flex items-center space-x-3 p-3 hover:bg-gray-50 rounded-lg transition-colors">
+                            <FormItem className="flex items-center space-x-3">
                               <FormControl>
                                 <RadioGroupItem value="private-car" />
                               </FormControl>
-                              <FormLabel className="font-medium text-gray-700 cursor-pointer">
+                              <FormLabel className="font-normal">
                                 Private car
                               </FormLabel>
                             </FormItem>
-                            <FormItem className="flex items-center space-x-3 p-3 hover:bg-gray-50 rounded-lg transition-colors">
+                            <FormItem className="flex items-center space-x-3">
                               <FormControl>
                                 <RadioGroupItem value="walking" />
                               </FormControl>
-                              <FormLabel className="font-medium text-gray-700 cursor-pointer">
+                              <FormLabel className="font-normal">
                                 Walking
                               </FormLabel>
                             </FormItem>
-                            <FormItem className="flex items-center space-x-3 p-3 hover:bg-gray-50 rounded-lg transition-colors">
+                            <FormItem className="flex items-center space-x-3">
                               <FormControl>
                                 <RadioGroupItem value="school-shuttle" />
                               </FormControl>
-                              <FormLabel className="font-medium text-gray-700 cursor-pointer">
+                              <FormLabel className="font-normal">
                                 University shuttle
                               </FormLabel>
                             </FormItem>
-                            <FormItem className="flex items-center space-x-3 p-3 hover:bg-gray-50 rounded-lg transition-colors">
+                            <FormItem className="flex items-center space-x-3">
                               <FormControl>
                                 <RadioGroupItem value="bicycle" />
                               </FormControl>
-                              <FormLabel className="font-medium text-gray-700 cursor-pointer">
+                              <FormLabel className="font-normal">
                                 Bicycle
                               </FormLabel>
                             </FormItem>
-                            <FormItem className="flex items-center space-x-3 p-3 hover:bg-gray-50 rounded-lg transition-colors">
+                            <FormItem className="flex items-center space-x-3">
                               <FormControl>
                                 <RadioGroupItem value="other" />
                               </FormControl>
-                              <FormLabel className="font-medium text-gray-700 cursor-pointer">
+                              <FormLabel className="font-normal">
                                 Other
                               </FormLabel>
                             </FormItem>
@@ -251,46 +250,30 @@ export default function StudentTransportSurvey() {
                     name="commuteDays"
                     render={({ field }) => (
                       <FormItem className="space-y-4">
-                        <FormLabel className="text-lg font-semibold text-gray-800">
+                        <FormLabel className="text-lg font-semibold">
                           2. How many days per week do you commute to campus?
                         </FormLabel>
                         <FormControl>
                           <RadioGroup
                             onValueChange={field.onChange}
                             value={field.value}
-                            className="grid grid-cols-2 md:grid-cols-4 gap-3"
+                            className="flex flex-wrap gap-3"
                           >
-                            <FormItem className="flex items-center justify-center p-4 border border-gray-200 rounded-lg hover:bg-gray-50 transition-colors">
-                              <FormControl>
-                                <RadioGroupItem value="1-2" className="sr-only" />
-                              </FormControl>
-                              <FormLabel className="font-medium text-gray-700 cursor-pointer text-center w-full">
-                                1-2 days
-                              </FormLabel>
+                            <FormItem>
+                               <RadioGroupItem value="1-2" id="d1-2" className="peer sr-only"/>
+                               <Label htmlFor="d1-2" className="rounded-md border-2 border-muted bg-popover hover:bg-accent hover:text-accent-foreground peer-data-[state=checked]:border-primary [&:has([data-state=checked])]:border-primary px-4 py-2 cursor-pointer">1-2 days</Label>
                             </FormItem>
-                            <FormItem className="flex items-center justify-center p-4 border border-gray-200 rounded-lg hover:bg-gray-50 transition-colors">
-                              <FormControl>
-                                <RadioGroupItem value="3-4" className="sr-only" />
-                              </FormControl>
-                              <FormLabel className="font-medium text-gray-700 cursor-pointer text-center w-full">
-                                3-4 days
-                              </FormLabel>
+                             <FormItem>
+                               <RadioGroupItem value="3-4" id="d3-4" className="peer sr-only"/>
+                               <Label htmlFor="d3-4" className="rounded-md border-2 border-muted bg-popover hover:bg-accent hover:text-accent-foreground peer-data-[state=checked]:border-primary [&:has([data-state=checked])]:border-primary px-4 py-2 cursor-pointer">3-4 days</Label>
                             </FormItem>
-                            <FormItem className="flex items-center justify-center p-4 border border-gray-200 rounded-lg hover:bg-gray-50 transition-colors">
-                              <FormControl>
-                                <RadioGroupItem value="5" className="sr-only" />
-                              </FormControl>
-                              <FormLabel className="font-medium text-gray-700 cursor-pointer text-center w-full">
-                                5 days
-                              </FormLabel>
+                             <FormItem>
+                               <RadioGroupItem value="5" id="d5" className="peer sr-only"/>
+                               <Label htmlFor="d5" className="rounded-md border-2 border-muted bg-popover hover:bg-accent hover:text-accent-foreground peer-data-[state=checked]:border-primary [&:has([data-state=checked])]:border-primary px-4 py-2 cursor-pointer">5 days</Label>
                             </FormItem>
-                            <FormItem className="flex items-center justify-center p-4 border border-gray-200 rounded-lg hover:bg-gray-50 transition-colors">
-                              <FormControl>
-                                <RadioGroupItem value="everyday" className="sr-only" />
-                              </FormControl>
-                              <FormLabel className="font-medium text-gray-700 cursor-pointer text-center w-full">
-                                Everyday
-                              </FormLabel>
+                             <FormItem>
+                               <RadioGroupItem value="everyday" id="d-every" className="peer sr-only"/>
+                               <Label htmlFor="d-every" className="rounded-md border-2 border-muted bg-popover hover:bg-accent hover:text-accent-foreground peer-data-[state=checked]:border-primary [&:has([data-state=checked])]:border-primary px-4 py-2 cursor-pointer">Everyday</Label>
                             </FormItem>
                           </RadioGroup>
                         </FormControl>
@@ -305,7 +288,7 @@ export default function StudentTransportSurvey() {
                     name="leaveTime"
                     render={({ field }) => (
                       <FormItem className="space-y-4">
-                        <FormLabel className="text-lg font-semibold text-gray-800">
+                        <FormLabel className="text-lg font-semibold">
                           3. What time do you usually leave campus?
                         </FormLabel>
                         <FormControl>
@@ -314,37 +297,21 @@ export default function StudentTransportSurvey() {
                             value={field.value}
                             className="grid grid-cols-2 md:grid-cols-4 gap-3"
                           >
-                            <FormItem className="flex items-center justify-center p-4 border border-gray-200 rounded-lg hover:bg-gray-50 transition-colors">
-                              <FormControl>
-                                <RadioGroupItem value="morning" className="sr-only" />
-                              </FormControl>
-                              <FormLabel className="font-medium text-gray-700 cursor-pointer text-center w-full">
-                                Morning (6AM-12PM)
-                              </FormLabel>
+                           <FormItem>
+                               <RadioGroupItem value="morning" id="t-morning" className="peer sr-only"/>
+                               <Label htmlFor="t-morning" className="w-full text-center rounded-md border-2 border-muted bg-popover hover:bg-accent hover:text-accent-foreground peer-data-[state=checked]:border-primary [&:has([data-state=checked])]:border-primary px-4 py-2 cursor-pointer">Morning (6AM-12PM)</Label>
                             </FormItem>
-                            <FormItem className="flex items-center justify-center p-4 border border-gray-200 rounded-lg hover:bg-gray-50 transition-colors">
-                              <FormControl>
-                                <RadioGroupItem value="afternoon" className="sr-only" />
-                              </FormControl>
-                              <FormLabel className="font-medium text-gray-700 cursor-pointer text-center w-full">
-                                Afternoon (12PM-6PM)
-                              </FormLabel>
+                             <FormItem>
+                               <RadioGroupItem value="afternoon" id="t-afternoon" className="peer sr-only"/>
+                               <Label htmlFor="t-afternoon" className="w-full text-center rounded-md border-2 border-muted bg-popover hover:bg-accent hover:text-accent-foreground peer-data-[state=checked]:border-primary [&:has([data-state=checked])]:border-primary px-4 py-2 cursor-pointer">Afternoon (12PM-6PM)</Label>
                             </FormItem>
-                            <FormItem className="flex items-center justify-center p-4 border border-gray-200 rounded-lg hover:bg-gray-50 transition-colors">
-                              <FormControl>
-                                <RadioGroupItem value="evening" className="sr-only" />
-                              </FormControl>
-                              <FormLabel className="font-medium text-gray-700 cursor-pointer text-center w-full">
-                                Evening (6PM-10PM)
-                              </FormLabel>
+                             <FormItem>
+                               <RadioGroupItem value="evening" id="t-evening" className="peer sr-only"/>
+                               <Label htmlFor="t-evening" className="w-full text-center rounded-md border-2 border-muted bg-popover hover:bg-accent hover:text-accent-foreground peer-data-[state=checked]:border-primary [&:has([data-state=checked])]:border-primary px-4 py-2 cursor-pointer">Evening (6PM-10PM)</Label>
                             </FormItem>
-                            <FormItem className="flex items-center justify-center p-4 border border-gray-200 rounded-lg hover:bg-gray-50 transition-colors">
-                              <FormControl>
-                                <RadioGroupItem value="late-night" className="sr-only" />
-                              </FormControl>
-                              <FormLabel className="font-medium text-gray-700 cursor-pointer text-center w-full">
-                                Late night (10PM+)
-                              </FormLabel>
+                             <FormItem>
+                               <RadioGroupItem value="late-night" id="t-late" className="peer sr-only"/>
+                               <Label htmlFor="t-late" className="w-full text-center rounded-md border-2 border-muted bg-popover hover:bg-accent hover:text-accent-foreground peer-data-[state=checked]:border-primary [&:has([data-state=checked])]:border-primary px-4 py-2 cursor-pointer">Late night (10PM+)</Label>
                             </FormItem>
                           </RadioGroup>
                         </FormControl>
@@ -358,22 +325,22 @@ export default function StudentTransportSurvey() {
 
             {/* Section 2: Current Transport Pain Points */}
             <ScrollAnimation delay={0.2}>
-              <Card className="border-2 border-orange-100">
-                <CardHeader className="bg-orange-50 border-b border-orange-100">
-                  <CardTitle className="text-2xl text-orange-800">Section 2: Current Transport Challenges</CardTitle>
-                  <CardDescription className="text-gray-600">
+              <Card>
+                <CardHeader>
+                  <CardTitle>Section 2: Current Transport Challenges</CardTitle>
+                  <CardDescription>
                     What difficulties do you face with current transport options?
                   </CardDescription>
                 </CardHeader>
-                <CardContent className="pt-6 space-y-8">
+                <CardContent className="space-y-8">
                   
                   {/* Question 4: Pain Points Checkbox */}
                   <FormField
                     control={form.control}
                     name="painPoints"
-                    render={({ field }) => (
+                    render={() => (
                       <FormItem className="space-y-4">
-                        <FormLabel className="text-lg font-semibold text-gray-800">
+                        <FormLabel className="text-lg font-semibold">
                           4. What frustrates you most about current transport options? (Select all that apply)
                         </FormLabel>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -382,20 +349,23 @@ export default function StudentTransportSurvey() {
                               key={item.id}
                               control={form.control}
                               name="painPoints"
-                              render={({ field: checkboxField }) => (
-                                <FormItem className="flex items-center space-x-3 p-3 border border-gray-200 rounded-lg hover:bg-gray-50 transition-colors">
+                              render={({ field }) => (
+                                <FormItem className="flex flex-row items-start space-x-3 space-y-0 rounded-md border p-4">
                                   <FormControl>
                                     <Checkbox
-                                      checked={checkboxField.value?.includes(item.id)}
+                                      checked={field.value?.includes(item.id)}
                                       onCheckedChange={(checked) => {
-                                        const updatedValue = checked
-                                          ? [...checkboxField.value, item.id]
-                                          : checkboxField.value?.filter((v) => v !== item.id);
-                                        checkboxField.onChange(updatedValue);
+                                        return checked
+                                          ? field.onChange([...field.value, item.id])
+                                          : field.onChange(
+                                              field.value?.filter(
+                                                (value) => value !== item.id
+                                              )
+                                            )
                                       }}
                                     />
                                   </FormControl>
-                                  <FormLabel className="font-medium text-gray-700 cursor-pointer">
+                                  <FormLabel className="font-normal">
                                     {item.label}
                                   </FormLabel>
                                 </FormItem>
@@ -414,52 +384,52 @@ export default function StudentTransportSurvey() {
                     name="overcrowdingFrequency"
                     render={({ field }) => (
                       <FormItem className="space-y-4">
-                        <FormLabel className="text-lg font-semibold text-gray-800">
+                        <FormLabel className="text-lg font-semibold">
                           5. How often do you experience overcrowded vehicles?
                         </FormLabel>
                         <FormControl>
                           <RadioGroup
                             onValueChange={field.onChange}
                             value={field.value}
-                            className="space-y-3"
+                            className="space-y-2"
                           >
-                            <FormItem className="flex items-center space-x-3 p-3 hover:bg-gray-50 rounded-lg transition-colors">
+                            <FormItem className="flex items-center space-x-3">
                               <FormControl>
                                 <RadioGroupItem value="very-often" />
                               </FormControl>
-                              <FormLabel className="font-medium text-gray-700 cursor-pointer">
+                              <FormLabel className="font-normal">
                                 Very often (almost every trip)
                               </FormLabel>
                             </FormItem>
-                            <FormItem className="flex items-center space-x-3 p-3 hover:bg-gray-50 rounded-lg transition-colors">
+                            <FormItem className="flex items-center space-x-3">
                               <FormControl>
                                 <RadioGroupItem value="often" />
                               </FormControl>
-                              <FormLabel className="font-medium text-gray-700 cursor-pointer">
+                              <FormLabel className="font-normal">
                                 Often (most trips)
                               </FormLabel>
                             </FormItem>
-                            <FormItem className="flex items-center space-x-3 p-3 hover:bg-gray-50 rounded-lg transition-colors">
+                            <FormItem className="flex items-center space-x-3">
                               <FormControl>
                                 <RadioGroupItem value="sometimes" />
                               </FormControl>
-                              <FormLabel className="font-medium text-gray-700 cursor-pointer">
+                              <FormLabel className="font-normal">
                                 Sometimes
                               </FormLabel>
                             </FormItem>
-                            <FormItem className="flex items-center space-x-3 p-3 hover:bg-gray-50 rounded-lg transition-colors">
+                            <FormItem className="flex items-center space-x-3">
                               <FormControl>
                                 <RadioGroupItem value="rarely" />
                               </FormControl>
-                              <FormLabel className="font-medium text-gray-700 cursor-pointer">
+                              <FormLabel className="font-normal">
                                 Rarely
                               </FormLabel>
                             </FormItem>
-                            <FormItem className="flex items-center space-x-3 p-3 hover:bg-gray-50 rounded-lg transition-colors">
+                            <FormItem className="flex items-center space-x-3">
                               <FormControl>
                                 <RadioGroupItem value="never" />
                               </FormControl>
-                              <FormLabel className="font-medium text-gray-700 cursor-pointer">
+                              <FormLabel className="font-normal">
                                 Never
                               </FormLabel>
                             </FormItem>
@@ -476,44 +446,44 @@ export default function StudentTransportSurvey() {
                     name="boardingStress"
                     render={({ field }) => (
                       <FormItem className="space-y-4">
-                        <FormLabel className="text-lg font-semibold text-gray-800">
+                        <FormLabel className="text-lg font-semibold">
                           6. How stressful is boarding transport for you?
                         </FormLabel>
                         <FormControl>
                           <RadioGroup
                             onValueChange={field.onChange}
                             value={field.value}
-                            className="space-y-3"
+                            className="space-y-2"
                           >
-                            <FormItem className="flex items-center space-x-3 p-3 hover:bg-gray-50 rounded-lg transition-colors">
+                            <FormItem className="flex items-center space-x-3">
                               <FormControl>
                                 <RadioGroupItem value="very-stressful" />
                               </FormControl>
-                              <FormLabel className="font-medium text-gray-700 cursor-pointer">
+                              <FormLabel className="font-normal">
                                 Very stressful
                               </FormLabel>
                             </FormItem>
-                            <FormItem className="flex items-center space-x-3 p-3 hover:bg-gray-50 rounded-lg transition-colors">
+                            <FormItem className="flex items-center space-x-3">
                               <FormControl>
                                 <RadioGroupItem value="somewhat-stressful" />
                               </FormControl>
-                              <FormLabel className="font-medium text-gray-700 cursor-pointer">
+                              <FormLabel className="font-normal">
                                 Somewhat stressful
                               </FormLabel>
                             </FormItem>
-                            <FormItem className="flex items-center space-x-3 p-3 hover:bg-gray-50 rounded-lg transition-colors">
+                            <FormItem className="flex items-center space-x-3">
                               <FormControl>
                                 <RadioGroupItem value="neutral" />
                               </FormControl>
-                              <FormLabel className="font-medium text-gray-700 cursor-pointer">
+                              <FormLabel className="font-normal">
                                 Neutral
                               </FormLabel>
                             </FormItem>
-                            <FormItem className="flex items-center space-x-3 p-3 hover:bg-gray-50 rounded-lg transition-colors">
+                            <FormItem className="flex items-center space-x-3">
                               <FormControl>
                                 <RadioGroupItem value="not-stressful" />
                               </FormControl>
-                              <FormLabel className="font-medium text-gray-700 cursor-pointer">
+                              <FormLabel className="font-normal">
                                 Not stressful
                               </FormLabel>
                             </FormItem>
@@ -529,10 +499,10 @@ export default function StudentTransportSurvey() {
 
             {/* Section 3: Interest in Transport App */}
             <ScrollAnimation delay={0.3}>
-              <Card className="border-2 border-green-100">
-                <CardHeader className="bg-green-50 border-b border-green-100">
-                  <CardTitle className="text-2xl text-green-800">Section 3: Interest in Smart Transport Solution</CardTitle>
-                  <CardDescription className="text-gray-600">
+              <Card>
+                <CardHeader>
+                  <CardTitle>Section 3: Interest in Smart Transport Solution</CardTitle>
+                  <CardDescription>
                     Would a modern transport app service appeal to you?
                   </CardDescription>
                 </CardHeader>
@@ -544,52 +514,52 @@ export default function StudentTransportSurvey() {
                     name="useApp"
                     render={({ field }) => (
                       <FormItem className="space-y-4">
-                        <FormLabel className="text-lg font-semibold text-gray-800">
+                        <FormLabel className="text-lg font-semibold">
                           7. Would you use a mobile app that shows nearby vehicles, routes, and available seats in real-time?
                         </FormLabel>
                         <FormControl>
                           <RadioGroup
                             onValueChange={field.onChange}
                             value={field.value}
-                            className="space-y-3"
+                            className="space-y-2"
                           >
-                            <FormItem className="flex items-center space-x-3 p-3 hover:bg-gray-50 rounded-lg transition-colors">
+                            <FormItem className="flex items-center space-x-3">
                               <FormControl>
                                 <RadioGroupItem value="definitely-yes" />
                               </FormControl>
-                              <FormLabel className="font-medium text-gray-700 cursor-pointer">
+                              <FormLabel className="font-normal">
                                 Definitely yes
                               </FormLabel>
                             </FormItem>
-                            <FormItem className="flex items-center space-x-3 p-3 hover:bg-gray-50 rounded-lg transition-colors">
+                            <FormItem className="flex items-center space-x-3">
                               <FormControl>
                                 <RadioGroupItem value="probably-yes" />
                               </FormControl>
-                              <FormLabel className="font-medium text-gray-700 cursor-pointer">
+                              <FormLabel className="font-normal">
                                 Probably yes
                               </FormLabel>
                             </FormItem>
-                            <FormItem className="flex items-center space-x-3 p-3 hover:bg-gray-50 rounded-lg transition-colors">
+                            <FormItem className="flex items-center space-x-3">
                               <FormControl>
                                 <RadioGroupItem value="not-sure" />
                               </FormControl>
-                              <FormLabel className="font-medium text-gray-700 cursor-pointer">
+                              <FormLabel className="font-normal">
                                 Not sure
                               </FormLabel>
                             </FormItem>
-                            <FormItem className="flex items-center space-x-3 p-3 hover:bg-gray-50 rounded-lg transition-colors">
+                            <FormItem className="flex items-center space-x-3">
                               <FormControl>
                                 <RadioGroupItem value="probably-no" />
                               </FormControl>
-                              <FormLabel className="font-medium text-gray-700 cursor-pointer">
+                              <FormLabel className="font-normal">
                                 Probably no
                               </FormLabel>
                             </FormItem>
-                            <FormItem className="flex items-center space-x-3 p-3 hover:bg-gray-50 rounded-lg transition-colors">
+                            <FormItem className="flex items-center space-x-3">
                               <FormControl>
                                 <RadioGroupItem value="definitely-no" />
                               </FormControl>
-                              <FormLabel className="font-medium text-gray-700 cursor-pointer">
+                              <FormLabel className="font-normal">
                                 Definitely no
                               </FormLabel>
                             </FormItem>
@@ -606,44 +576,44 @@ export default function StudentTransportSurvey() {
                     name="seatAvailabilityImportance"
                     render={({ field }) => (
                       <FormItem className="space-y-4">
-                        <FormLabel className="text-lg font-semibold text-gray-800">
+                        <FormLabel className="text-lg font-semibold">
                           8. How important is knowing seat availability before boarding?
                         </FormLabel>
                         <FormControl>
                           <RadioGroup
                             onValueChange={field.onChange}
                             value={field.value}
-                            className="space-y-3"
+                            className="space-y-2"
                           >
-                            <FormItem className="flex items-center space-x-3 p-3 hover:bg-gray-50 rounded-lg transition-colors">
+                            <FormItem className="flex items-center space-x-3">
                               <FormControl>
                                 <RadioGroupItem value="extremely-important" />
                               </FormControl>
-                              <FormLabel className="font-medium text-gray-700 cursor-pointer">
+                              <FormLabel className="font-normal">
                                 Extremely important
                               </FormLabel>
                             </FormItem>
-                            <FormItem className="flex items-center space-x-3 p-3 hover:bg-gray-50 rounded-lg transition-colors">
+                            <FormItem className="flex items-center space-x-3">
                               <FormControl>
                                 <RadioGroupItem value="important" />
                               </FormControl>
-                              <FormLabel className="font-medium text-gray-700 cursor-pointer">
+                              <FormLabel className="font-normal">
                                 Important
                               </FormLabel>
                             </FormItem>
-                            <FormItem className="flex items-center space-x-3 p-3 hover:bg-gray-50 rounded-lg transition-colors">
+                            <FormItem className="flex items-center space-x-3">
                               <FormControl>
                                 <RadioGroupItem value="neutral" />
                               </FormControl>
-                              <FormLabel className="font-medium text-gray-700 cursor-pointer">
+                              <FormLabel className="font-normal">
                                 Neutral
                               </FormLabel>
                             </FormItem>
-                            <FormItem className="flex items-center space-x-3 p-3 hover:bg-gray-50 rounded-lg transition-colors">
+                            <FormItem className="flex items-center space-x-3">
                               <FormControl>
                                 <RadioGroupItem value="not-important" />
                               </FormControl>
-                              <FormLabel className="font-medium text-gray-700 cursor-pointer">
+                              <FormLabel className="font-normal">
                                 Not important
                               </FormLabel>
                             </FormItem>
@@ -660,36 +630,36 @@ export default function StudentTransportSurvey() {
                     name="preBook"
                     render={({ field }) => (
                       <FormItem className="space-y-4">
-                        <FormLabel className="text-lg font-semibold text-gray-800">
+                        <FormLabel className="text-lg font-semibold">
                           9. Would you prefer booking a seat a few minutes before the vehicle arrives?
                         </FormLabel>
                         <FormControl>
                           <RadioGroup
                             onValueChange={field.onChange}
                             value={field.value}
-                            className="space-y-3"
+                            className="space-y-2"
                           >
-                            <FormItem className="flex items-center space-x-3 p-3 hover:bg-gray-50 rounded-lg transition-colors">
+                            <FormItem className="flex items-center space-x-3">
                               <FormControl>
                                 <RadioGroupItem value="yes" />
                               </FormControl>
-                              <FormLabel className="font-medium text-gray-700 cursor-pointer">
+                              <FormLabel className="font-normal">
                                 Yes
                               </FormLabel>
                             </FormItem>
-                            <FormItem className="flex items-center space-x-3 p-3 hover:bg-gray-50 rounded-lg transition-colors">
+                            <FormItem className="flex items-center space-x-3">
                               <FormControl>
                                 <RadioGroupItem value="maybe" />
                               </FormControl>
-                              <FormLabel className="font-medium text-gray-700 cursor-pointer">
+                              <FormLabel className="font-normal">
                                 Maybe, depending on the situation
                               </FormLabel>
                             </FormItem>
-                            <FormItem className="flex items-center space-x-3 p-3 hover:bg-gray-50 rounded-lg transition-colors">
+                            <FormItem className="flex items-center space-x-3">
                               <FormControl>
                                 <RadioGroupItem value="no" />
                               </FormControl>
-                              <FormLabel className="font-medium text-gray-700 cursor-pointer">
+                              <FormLabel className="font-normal">
                                 No
                               </FormLabel>
                             </FormItem>
@@ -705,10 +675,10 @@ export default function StudentTransportSurvey() {
 
             {/* Section 4: Features Prioritization */}
             <ScrollAnimation delay={0.4}>
-              <Card className="border-2 border-purple-100">
-                <CardHeader className="bg-purple-50 border-b border-purple-100">
-                  <CardTitle className="text-2xl text-purple-800">Section 4: Features Prioritization</CardTitle>
-                  <CardDescription className="text-gray-600">
+              <Card>
+                <CardHeader>
+                  <CardTitle>Section 4: Features Prioritization</CardTitle>
+                  <CardDescription>
                     Help us decide which features to build first
                   </CardDescription>
                 </CardHeader>
@@ -720,7 +690,7 @@ export default function StudentTransportSurvey() {
                     name="features"
                     render={({ field }) => (
                       <FormItem className="space-y-4">
-                        <FormLabel className="text-lg font-semibold text-gray-800">
+                        <FormLabel className="text-lg font-semibold">
                           10. Which transport app features interest you most? (Select up to 3)
                         </FormLabel>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -729,38 +699,37 @@ export default function StudentTransportSurvey() {
                               key={item.id}
                               control={form.control}
                               name="features"
-                              render={({ field: checkboxField }) => (
-                                <FormItem className="flex items-center space-x-3 p-3 border border-gray-200 rounded-lg hover:bg-gray-50 transition-colors">
-                                  <FormControl>
-                                    <Checkbox
-                                      checked={checkboxField.value?.includes(item.id)}
-                                      onCheckedChange={(checked) => {
-                                        const updatedValue = checked
-                                          ? [...checkboxField.value, item.id]
-                                          : checkboxField.value?.filter((v) => v !== item.id);
-                                        checkboxField.onChange(updatedValue);
-                                      }}
-                                      disabled={
-                                        checkboxField.value?.length >= 3 && 
-                                        !checkboxField.value?.includes(item.id)
-                                      }
-                                    />
-                                  </FormControl>
-                                  <FormLabel className="font-medium text-gray-700 cursor-pointer flex-1">
-                                    {item.label}
-                                    {checkboxField.value?.length >= 3 && 
-                                     !checkboxField.value?.includes(item.id) && (
-                                      <span className="text-xs text-gray-500 ml-2">(Max selected)</span>
-                                    )}
-                                  </FormLabel>
-                                </FormItem>
-                              )}
+                              render={({ field: checkboxField }) => {
+                                const isChecked = checkboxField.value?.includes(item.id);
+                                const isDisabled = !isChecked && checkboxField.value?.length >= 3;
+                                return (
+                                  <FormItem
+                                    className="flex flex-row items-start space-x-3 space-y-0 rounded-md border p-4 has-[:disabled]:opacity-50"
+                                  >
+                                    <FormControl>
+                                      <Checkbox
+                                        checked={isChecked}
+                                        onCheckedChange={(checked) => {
+                                          const updatedValue = checked
+                                            ? [...checkboxField.value, item.id]
+                                            : checkboxField.value?.filter((v) => v !== item.id);
+                                          checkboxField.onChange(updatedValue);
+                                        }}
+                                        disabled={isDisabled}
+                                      />
+                                    </FormControl>
+                                    <FormLabel className="font-normal">
+                                      {item.label}
+                                    </FormLabel>
+                                  </FormItem>
+                                );
+                              }}
                             />
                           ))}
                         </div>
-                        <div className="text-sm text-gray-600 mt-2">
-                          <p>Selected: {field.value?.length || 0}/3 features</p>
-                        </div>
+                        <FormDescription>
+                          Selected: {field.value?.length || 0}/3 features
+                        </FormDescription>
                         <FormMessage />
                       </FormItem>
                     )}
@@ -772,44 +741,44 @@ export default function StudentTransportSurvey() {
                     name="musicAppeal"
                     render={({ field }) => (
                       <FormItem className="space-y-4">
-                        <FormLabel className="text-lg font-semibold text-gray-800">
+                        <FormLabel className="text-lg font-semibold">
                           11. How appealing is background music during trips?
                         </FormLabel>
                         <FormControl>
                           <RadioGroup
                             onValueChange={field.onChange}
                             value={field.value}
-                            className="space-y-3"
+                            className="space-y-2"
                           >
-                            <FormItem className="flex items-center space-x-3 p-3 hover:bg-gray-50 rounded-lg transition-colors">
+                            <FormItem className="flex items-center space-x-3">
                               <FormControl>
                                 <RadioGroupItem value="very-appealing" />
                               </FormControl>
-                              <FormLabel className="font-medium text-gray-700 cursor-pointer">
+                              <FormLabel className="font-normal">
                                 Very appealing - would make trips more enjoyable
                               </FormLabel>
                             </FormItem>
-                            <FormItem className="flex items-center space-x-3 p-3 hover:bg-gray-50 rounded-lg transition-colors">
+                            <FormItem className="flex items-center space-x-3">
                               <FormControl>
                                 <RadioGroupItem value="appealing" />
                               </FormControl>
-                              <FormLabel className="font-medium text-gray-700 cursor-pointer">
+                              <FormLabel className="font-normal">
                                 Appealing - would be a nice addition
                               </FormLabel>
                             </FormItem>
-                            <FormItem className="flex items-center space-x-3 p-3 hover:bg-gray-50 rounded-lg transition-colors">
+                            <FormItem className="flex items-center space-x-3">
                               <FormControl>
                                 <RadioGroupItem value="neutral" />
                               </FormControl>
-                              <FormLabel className="font-medium text-gray-700 cursor-pointer">
+                              <FormLabel className="font-normal">
                                 Neutral - doesn't matter either way
                               </FormLabel>
                             </FormItem>
-                            <FormItem className="flex items-center space-x-3 p-3 hover:bg-gray-50 rounded-lg transition-colors">
+                            <FormItem className="flex items-center space-x-3">
                               <FormControl>
                                 <RadioGroupItem value="not-appealing" />
                               </FormControl>
-                              <FormLabel className="font-medium text-gray-700 cursor-pointer">
+                              <FormLabel className="font-normal">
                                 Not appealing - prefer quiet trips
                               </FormLabel>
                             </FormItem>
@@ -826,36 +795,36 @@ export default function StudentTransportSurvey() {
                     name="suggestMusic"
                     render={({ field }) => (
                       <FormItem className="space-y-4">
-                        <FormLabel className="text-lg font-semibold text-gray-800">
+                        <FormLabel className="text-lg font-semibold">
                           12. Would you like to suggest music during trips?
                         </FormLabel>
                         <FormControl>
                           <RadioGroup
                             onValueChange={field.onChange}
                             value={field.value}
-                            className="space-y-3"
+                            className="space-y-2"
                           >
-                            <FormItem className="flex items-center space-x-3 p-3 hover:bg-gray-50 rounded-lg transition-colors">
+                            <FormItem className="flex items-center space-x-3">
                               <FormControl>
                                 <RadioGroupItem value="yes" />
                               </FormControl>
-                              <FormLabel className="font-medium text-gray-700 cursor-pointer">
+                              <FormLabel className="font-normal">
                                 Yes, definitely
                               </FormLabel>
                             </FormItem>
-                            <FormItem className="flex items-center space-x-3 p-3 hover:bg-gray-50 rounded-lg transition-colors">
+                            <FormItem className="flex items-center space-x-3">
                               <FormControl>
                                 <RadioGroupItem value="sometimes" />
                               </FormControl>
-                              <FormLabel className="font-medium text-gray-700 cursor-pointer">
+                              <FormLabel className="font-normal">
                                 Sometimes, for certain trips
                               </FormLabel>
                             </FormItem>
-                            <FormItem className="flex items-center space-x-3 p-3 hover:bg-gray-50 rounded-lg transition-colors">
+                            <FormItem className="flex items-center space-x-3">
                               <FormControl>
                                 <RadioGroupItem value="no" />
                               </FormControl>
-                              <FormLabel className="font-medium text-gray-700 cursor-pointer">
+                              <FormLabel className="font-normal">
                                 No, I'd rather listen to my own music
                               </FormLabel>
                             </FormItem>
@@ -871,10 +840,10 @@ export default function StudentTransportSurvey() {
 
             {/* Section 5: Pricing & Payment */}
             <ScrollAnimation delay={0.5}>
-              <Card className="border-2 border-yellow-100">
-                <CardHeader className="bg-yellow-50 border-b border-yellow-100">
-                  <CardTitle className="text-2xl text-yellow-800">Section 5: Pricing & Payment</CardTitle>
-                  <CardDescription className="text-gray-600">
+              <Card>
+                <CardHeader>
+                  <CardTitle>Section 5: Pricing & Payment</CardTitle>
+                  <CardDescription>
                     Your thoughts on costs and payment methods
                   </CardDescription>
                 </CardHeader>
@@ -886,44 +855,44 @@ export default function StudentTransportSurvey() {
                     name="tripPrice"
                     render={({ field }) => (
                       <FormItem className="space-y-4">
-                        <FormLabel className="text-lg font-semibold text-gray-800">
+                        <FormLabel className="text-lg font-semibold">
                           13. How much do you usually pay per trip currently?
                         </FormLabel>
                         <FormControl>
                           <RadioGroup
                             onValueChange={field.onChange}
                             value={field.value}
-                            className="space-y-3"
+                            className="space-y-2"
                           >
-                            <FormItem className="flex items-center space-x-3 p-3 hover:bg-gray-50 rounded-lg transition-colors">
+                            <FormItem className="flex items-center space-x-3">
                               <FormControl>
                                 <RadioGroupItem value="less-than-5" />
                               </FormControl>
-                              <FormLabel className="font-medium text-gray-700 cursor-pointer">
+                              <FormLabel className="font-normal">
                                 Less than GH₵5
                               </FormLabel>
                             </FormItem>
-                            <FormItem className="flex items-center space-x-3 p-3 hover:bg-gray-50 rounded-lg transition-colors">
+                            <FormItem className="flex items-center space-x-3">
                               <FormControl>
                                 <RadioGroupItem value="5-10" />
                               </FormControl>
-                              <FormLabel className="font-medium text-gray-700 cursor-pointer">
+                              <FormLabel className="font-normal">
                                 GH₵5 – GH₵10
                               </FormLabel>
                             </FormItem>
-                            <FormItem className="flex items-center space-x-3 p-3 hover:bg-gray-50 rounded-lg transition-colors">
+                            <FormItem className="flex items-center space-x-3">
                               <FormControl>
                                 <RadioGroupItem value="10-15" />
                               </FormControl>
-                              <FormLabel className="font-medium text-gray-700 cursor-pointer">
+                              <FormLabel className="font-normal">
                                 GH₵10 – GH₵15
                               </FormLabel>
                             </FormItem>
-                            <FormItem className="flex items-center space-x-3 p-3 hover:bg-gray-50 rounded-lg transition-colors">
+                            <FormItem className="flex items-center space-x-3">
                               <FormControl>
                                 <RadioGroupItem value="15-plus" />
                               </FormControl>
-                              <FormLabel className="font-medium text-gray-700 cursor-pointer">
+                              <FormLabel className="font-normal">
                                 GH₵15+
                               </FormLabel>
                             </FormItem>
@@ -940,36 +909,36 @@ export default function StudentTransportSurvey() {
                     name="useWallet"
                     render={({ field }) => (
                       <FormItem className="space-y-4">
-                        <FormLabel className="text-lg font-semibold text-gray-800">
+                        <FormLabel className="text-lg font-semibold">
                           14. Would you use a prepaid wallet/card for transport payments?
                         </FormLabel>
                         <FormControl>
                           <RadioGroup
                             onValueChange={field.onChange}
                             value={field.value}
-                            className="space-y-3"
+                            className="space-y-2"
                           >
-                            <FormItem className="flex items-center space-x-3 p-3 hover:bg-gray-50 rounded-lg transition-colors">
+                            <FormItem className="flex items-center space-x-3">
                               <FormControl>
                                 <RadioGroupItem value="yes" />
                               </FormControl>
-                              <FormLabel className="font-medium text-gray-700 cursor-pointer">
+                              <FormLabel className="font-normal">
                                 Yes, it's more convenient and secure
                               </FormLabel>
                             </FormItem>
-                            <FormItem className="flex items-center space-x-3 p-3 hover:bg-gray-50 rounded-lg transition-colors">
+                            <FormItem className="flex items-center space-x-3">
                               <FormControl>
                                 <RadioGroupItem value="maybe" />
                               </FormControl>
-                              <FormLabel className="font-medium text-gray-700 cursor-pointer">
+                              <FormLabel className="font-normal">
                                 Maybe, if there are benefits
                               </FormLabel>
                             </FormItem>
-                            <FormItem className="flex items-center space-x-3 p-3 hover:bg-gray-50 rounded-lg transition-colors">
+                            <FormItem className="flex items-center space-x-3">
                               <FormControl>
                                 <RadioGroupItem value="no" />
                               </FormControl>
-                              <FormLabel className="font-medium text-gray-700 cursor-pointer">
+                              <FormLabel className="font-normal">
                                 No, I prefer cash payments
                               </FormLabel>
                             </FormItem>
@@ -986,36 +955,36 @@ export default function StudentTransportSurvey() {
                     name="payForSeat"
                     render={({ field }) => (
                       <FormItem className="space-y-4">
-                        <FormLabel className="text-lg font-semibold text-gray-800">
+                        <FormLabel className="text-lg font-semibold">
                           15. Would you pay slightly more for guaranteed seating and less stress?
                         </FormLabel>
                         <FormControl>
                           <RadioGroup
                             onValueChange={field.onChange}
                             value={field.value}
-                            className="space-y-3"
+                            className="space-y-2"
                           >
-                            <FormItem className="flex items-center space-x-3 p-3 hover:bg-gray-50 rounded-lg transition-colors">
+                            <FormItem className="flex items-center space-x-3">
                               <FormControl>
                                 <RadioGroupItem value="yes" />
                               </FormControl>
-                              <FormLabel className="font-medium text-gray-700 cursor-pointer">
+                              <FormLabel className="font-normal">
                                 Yes, comfort and reliability are worth extra
                               </FormLabel>
                             </FormItem>
-                            <FormItem className="flex items-center space-x-3 p-3 hover:bg-gray-50 rounded-lg transition-colors">
+                            <FormItem className="flex items-center space-x-3">
                               <FormControl>
                                 <RadioGroupItem value="maybe" />
                               </FormControl>
-                              <FormLabel className="font-medium text-gray-700 cursor-pointer">
+                              <FormLabel className="font-normal">
                                 Maybe, depending on the price difference
                               </FormLabel>
                             </FormItem>
-                            <FormItem className="flex items-center space-x-3 p-3 hover:bg-gray-50 rounded-lg transition-colors">
+                            <FormItem className="flex items-center space-x-3">
                               <FormControl>
                                 <RadioGroupItem value="no" />
                               </FormControl>
-                              <FormLabel className="font-medium text-gray-700 cursor-pointer">
+                              <FormLabel className="font-normal">
                                 No, I prefer the lowest price possible
                               </FormLabel>
                             </FormItem>
@@ -1031,10 +1000,10 @@ export default function StudentTransportSurvey() {
 
             {/* Section 6: Pilot Participation */}
             <ScrollAnimation delay={0.6}>
-              <Card className="border-2 border-red-100">
-                <CardHeader className="bg-red-50 border-b border-red-100">
-                  <CardTitle className="text-2xl text-red-800">Section 6: Pilot Program Participation</CardTitle>
-                  <CardDescription className="text-gray-600">
+              <Card>
+                <CardHeader>
+                  <CardTitle>Section 6: Pilot Program Participation</CardTitle>
+                  <CardDescription>
                     Be among the first to experience the new service
                   </CardDescription>
                 </CardHeader>
@@ -1046,36 +1015,36 @@ export default function StudentTransportSurvey() {
                     name="joinPilot"
                     render={({ field }) => (
                       <FormItem className="space-y-4">
-                        <FormLabel className="text-lg font-semibold text-gray-800">
+                        <FormLabel className="text-lg font-semibold">
                           16. Would you like to be part of the pilot program?
                         </FormLabel>
                         <FormControl>
                           <RadioGroup
                             onValueChange={field.onChange}
                             value={field.value}
-                            className="space-y-3"
+                            className="space-y-2"
                           >
-                            <FormItem className="flex items-center space-x-3 p-3 hover:bg-gray-50 rounded-lg transition-colors">
+                            <FormItem className="flex items-center space-x-3">
                               <FormControl>
                                 <RadioGroupItem value="yes" />
                               </FormControl>
-                              <FormLabel className="font-medium text-gray-700 cursor-pointer">
+                              <FormLabel className="font-normal">
                                 Yes, I want to be an early tester
                               </FormLabel>
                             </FormItem>
-                            <FormItem className="flex items-center space-x-3 p-3 hover:bg-gray-50 rounded-lg transition-colors">
+                            <FormItem className="flex items-center space-x-3">
                               <FormControl>
                                 <RadioGroupItem value="maybe" />
                               </FormControl>
-                              <FormLabel className="font-medium text-gray-700 cursor-pointer">
+                              <FormLabel className="font-normal">
                                 Maybe, I need more information
                               </FormLabel>
                             </FormItem>
-                            <FormItem className="flex items-center space-x-3 p-3 hover:bg-gray-50 rounded-lg transition-colors">
+                            <FormItem className="flex items-center space-x-3">
                               <FormControl>
                                 <RadioGroupItem value="no" />
                               </FormControl>
-                              <FormLabel className="font-medium text-gray-700 cursor-pointer">
+                              <FormLabel className="font-normal">
                                 No, I prefer to wait for the full release
                               </FormLabel>
                             </FormItem>
@@ -1092,28 +1061,28 @@ export default function StudentTransportSurvey() {
                     name="earlyAccess"
                     render={({ field }) => (
                       <FormItem className="space-y-4">
-                        <FormLabel className="text-lg font-semibold text-gray-800">
+                        <FormLabel className="text-lg font-semibold">
                           17. Would you like early access when the app launches?
                         </FormLabel>
                         <FormControl>
                           <RadioGroup
                             onValueChange={field.onChange}
                             value={field.value}
-                            className="space-y-3"
+                            className="space-y-2"
                           >
-                            <FormItem className="flex items-center space-x-3 p-3 hover:bg-gray-50 rounded-lg transition-colors">
+                            <FormItem className="flex items-center space-x-3">
                               <FormControl>
                                 <RadioGroupItem value="yes" />
                               </FormControl>
-                              <FormLabel className="font-medium text-gray-700 cursor-pointer">
+                              <FormLabel className="font-normal">
                                 Yes, sign me up for early access
                               </FormLabel>
                             </FormItem>
-                            <FormItem className="flex items-center space-x-3 p-3 hover:bg-gray-50 rounded-lg transition-colors">
+                            <FormItem className="flex items-center space-x-3">
                               <FormControl>
                                 <RadioGroupItem value="no" />
                               </FormControl>
-                              <FormLabel className="font-medium text-gray-700 cursor-pointer">
+                              <FormLabel className="font-normal">
                                 No, I'll wait for general availability
                               </FormLabel>
                             </FormItem>
@@ -1130,44 +1099,44 @@ export default function StudentTransportSurvey() {
                     name="recommend"
                     render={({ field }) => (
                       <FormItem className="space-y-4">
-                        <FormLabel className="text-lg font-semibold text-gray-800">
+                        <FormLabel className="text-lg font-semibold">
                           18. Would you recommend this service to friends if it works as described?
                         </FormLabel>
                         <FormControl>
                           <RadioGroup
                             onValueChange={field.onChange}
                             value={field.value}
-                            className="space-y-3"
+                            className="space-y-2"
                           >
-                            <FormItem className="flex items-center space-x-3 p-3 hover:bg-gray-50 rounded-lg transition-colors">
+                            <FormItem className="flex items-center space-x-3">
                               <FormControl>
                                 <RadioGroupItem value="definitely" />
                               </FormControl>
-                              <FormLabel className="font-medium text-gray-700 cursor-pointer">
+                              <FormLabel className="font-normal">
                                 Definitely, I'd be excited to share it
                               </FormLabel>
                             </FormItem>
-                            <FormItem className="flex items-center space-x-3 p-3 hover:bg-gray-50 rounded-lg transition-colors">
+                            <FormItem className="flex items-center space-x-3">
                               <FormControl>
                                 <RadioGroupItem value="probably" />
                               </FormControl>
-                              <FormLabel className="font-medium text-gray-700 cursor-pointer">
+                              <FormLabel className="font-normal">
                                 Probably, if it solves my transport issues
                               </FormLabel>
                             </FormItem>
-                            <FormItem className="flex items-center space-x-3 p-3 hover:bg-gray-50 rounded-lg transition-colors">
+                            <FormItem className="flex items-center space-x-3">
                               <FormControl>
                                 <RadioGroupItem value="not-sure" />
                               </FormControl>
-                              <FormLabel className="font-medium text-gray-700 cursor-pointer">
+                              <FormLabel className="font-normal">
                                 Not sure, I'd need to try it first
                               </FormLabel>
                             </FormItem>
-                            <FormItem className="flex items-center space-x-3 p-3 hover:bg-gray-50 rounded-lg transition-colors">
+                            <FormItem className="flex items-center space-x-3">
                               <FormControl>
                                 <RadioGroupItem value="probably-not" />
                               </FormControl>
-                              <FormLabel className="font-medium text-gray-700 cursor-pointer">
+                              <FormLabel className="font-normal">
                                 Probably not
                               </FormLabel>
                             </FormItem>
@@ -1186,12 +1155,11 @@ export default function StudentTransportSurvey() {
               <Button
                 type="submit"
                 size="lg"
-                className="px-12 py-6 text-lg font-semibold bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 transition-all duration-300 transform hover:scale-105"
                 disabled={form.formState.isSubmitting}
               >
                 {form.formState.isSubmitting ? (
                   <span className="flex items-center">
-                    <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                    <svg className="animate-spin -ml-1 mr-3 h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                       <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
                       <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                     </svg>
@@ -1201,13 +1169,14 @@ export default function StudentTransportSurvey() {
                   'Submit Your Responses'
                 )}
               </Button>
-              <p className="mt-4 text-sm text-gray-600">
+              <p className="mt-4 text-sm text-muted-foreground">
                 By submitting, you agree that your anonymous responses may be used for research and service improvement.
               </p>
             </div>
           </form>
         </Form>
-      </div>
     </div>
   );
 }
+
+    

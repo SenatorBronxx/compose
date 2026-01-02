@@ -5,9 +5,8 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { ScrollAnimation } from "@/components/ui/scroll-animation";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
-import { ArrowRight, Calendar, Map, Users } from "lucide-react";
+import { Calendar, Map, Users } from "lucide-react";
 import Image from "next/image";
-import Link from "next/link";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
@@ -403,5 +402,3 @@ export default function PilotProgramPage() {
     </>
   );
 }
-
-    

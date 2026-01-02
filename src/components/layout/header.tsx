@@ -1,3 +1,4 @@
+
 "use client";
 
 import Link from "next/link";
@@ -14,6 +15,7 @@ const navLinks = [
   { href: "/pilot-program", label: "Pilot Program" },
   { href: "/mobile-app", label: "Mobile App" },
   { href: "/drivers", label: "For Drivers" },
+  { href: "/survey", label: "Survey" },
   { href: "/about", label: "About" },
   { href: "/contact", label: "Contact" },
 ];
@@ -102,3 +104,5 @@ export function Header() {
     </header>
   );
 }
+
+    

@@ -1,3 +1,4 @@
+
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { ScrollAnimation } from "@/components/ui/scroll-animation";
@@ -11,19 +12,16 @@ const timelinePhases = [
     {
         phase: 1,
         title: "Initial Rollout",
-        date: "Fall Semester",
         description: "Limited service on core campus routes to gather initial feedback and test system stability.",
     },
     {
         phase: 2,
         title: "Service Expansion",
-        date: "Winter Break",
         description: "Adding more vehicles and expanding routes to include residential areas and popular off-campus spots.",
     },
     {
         phase: 3,
         title: "Full Campus Integration",
-        date: "Spring Semester",
         description: "Full on-demand service available to all students and faculty across the entire campus.",
     },
 ];
@@ -109,7 +107,6 @@ export default function PilotProgramPage() {
                               <CardHeader>
                                   <div className="flex justify-between items-center mb-2">
                                       <CardTitle className="font-headline text-xl">Phase {phase.phase}: {phase.title}</CardTitle>
-                                      <span className="text-sm font-semibold text-primary bg-primary/10 px-3 py-1 rounded-full">{phase.date}</span>
                                   </div>
                               </CardHeader>
                               <CardContent className="flex-grow">

@@ -2,7 +2,9 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { ScrollAnimation } from "@/components/ui/scroll-animation";
+import { PlaceHolderImages } from "@/lib/placeholder-images";
 import { Award, CheckCircle, ClipboardList, HelpCircle } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 
 const requirements = [
@@ -77,17 +79,35 @@ const faqs = [
 
 
 export default function DriversPage() {
+    const driverHeaderImage = PlaceHolderImages.find((img) => img.id === "drivers-page-header");
   return (
+    <>
+      <section className="relative w-full h-[50vh] flex items-center justify-center text-center text-white">
+        {driverHeaderImage && (
+            <Image
+                src={driverHeaderImage.imageUrl}
+                alt={driverHeaderImage.description}
+                fill
+                className="object-cover"
+                priority
+                data-ai-hint={driverHeaderImage.imageHint}
+            />
+        )}
+        <div className="absolute inset-0 bg-black/60" />
+        <div className="relative z-10 p-4 max-w-4xl mx-auto">
+            <ScrollAnimation>
+                <h1 className="font-headline text-4xl md:text-6xl font-bold tracking-tighter mb-4">
+                    Drive with ERITAS
+                </h1>
+            </ScrollAnimation>
+            <ScrollAnimation delay={0.1}>
+                <p className="text-lg md:text-xl text-primary-foreground/80">
+                    Earn flexibly, be your own boss, and help your campus community get around.
+                </p>
+            </ScrollAnimation>
+        </div>
+      </section>
     <div className="container mx-auto px-4 py-16 md:py-24">
-      <ScrollAnimation>
-        <header className="text-center mb-16">
-          <h1 className="font-headline text-4xl md:text-5xl font-bold mb-4">Drive with ERITAS</h1>
-          <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto">
-            Earn flexibly, be your own boss, and help your campus community get around.
-          </p>
-        </header>
-      </ScrollAnimation>
-
       <section className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-24">
         <ScrollAnimation>
           <div>
@@ -186,5 +206,6 @@ export default function DriversPage() {
       </section>
 
     </div>
+    </>
   );
 }

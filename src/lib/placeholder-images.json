@@ -41,6 +41,12 @@
       "description": "Students walking on a university campus.",
       "imageUrl": "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHx1bml2ZXJzaXR5JTIwY2FtcHVzfGVufDB8fHx8MTc2NjUzOTU1MHww&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "university campus"
+    },
+    {
+      "id": "drivers-page-header",
+      "description": "A smiling driver at the wheel of a modern shuttle bus.",
+      "imageUrl": "https://i.postimg.cc/kD3GkBhb/957cdb6e-5e9d-4a01-943b-9906de2caba5.png",
+      "imageHint": "driver shuttle bus"
     }
   ]
 }

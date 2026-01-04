@@ -1,3 +1,4 @@
+
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { ScrollAnimation } from "@/components/ui/scroll-animation";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
@@ -93,7 +94,7 @@ export default function AboutPage() {
       </section>
 
       <ScrollAnimation>
-        <section className="bg-card rounded-lg p-8 md:p-12">
+        <section className="bg-card rounded-lg p-8 md:p-12 mb-24">
           <h2 className="font-headline text-3xl md:text-4xl font-bold text-center mb-8">Why ERITAS?</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
               <div>
@@ -109,6 +110,19 @@ export default function AboutPage() {
                   <p className="text-muted-foreground">We're building a scalable platform that can grow with the needs of the campus and integrate future mobility innovations.</p>
               </div>
           </div>
+        </section>
+      </ScrollAnimation>
+
+      <ScrollAnimation>
+        <section>
+            <Image
+                src="https://i.postimg.cc/6qXySDG8/Screenshot-2025-11-06-192038-removebg-preview-(1).png"
+                alt="ERITAS service overview"
+                width={1200}
+                height={800}
+                className="mx-auto"
+                data-ai-hint="service diagram"
+            />
         </section>
       </ScrollAnimation>
     </div>

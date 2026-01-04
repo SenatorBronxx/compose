@@ -75,7 +75,7 @@ export function Footer() {
                 <Button key={social.name} variant="ghost" size="icon" asChild>
                     <a href={social.href} aria-label={social.name}>
                         {typeof social.icon === 'string' ? (
-                          <Image src={social.icon} alt={social.name} width={20} height={20} className="text-muted-foreground hover:text-primary" />
+                          <Image src={social.icon} alt={social.name} width={24} height={24} className="text-muted-foreground hover:text-primary" />
                         ) : (
                           <social.icon className="h-5 w-5 text-muted-foreground hover:text-primary" />
                         )}

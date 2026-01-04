@@ -1,3 +1,4 @@
+
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { ScrollAnimation } from "@/components/ui/scroll-animation";
@@ -143,8 +144,16 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="py-16 md:py-24 bg-accent text-accent-foreground">
-        <div className="container mx-auto px-4 text-center">
+      <section className="relative py-16 md:py-24 text-accent-foreground">
+        <Image
+            src="https://i.postimg.cc/6q0L16Sy/cc4ec637-c50d-4cae-8255-799c033da8be.png"
+            alt="Students walking on campus"
+            fill
+            className="object-cover"
+            data-ai-hint="students campus"
+        />
+        <div className="absolute inset-0 bg-black/60" />
+        <div className="relative z-10 container mx-auto px-4 text-center">
           <ScrollAnimation>
             <h2 className="font-headline text-3xl md:text-4xl font-bold mb-4">
               Join the ERITAS Pilot Program

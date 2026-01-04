@@ -27,7 +27,7 @@ export function Footer() {
             <Link href="/" className="flex items-center space-x-2 mb-4">
               <Image src="https://img.sanishtech.com/u/a26c366da4c6547e1d08ef12436d9afe.png" alt="ERITAS Logo" width={60} height={60} />
             </Link>
-            <p className="text-sm text-muted-foreground">The future of university transit.</p>
+            <p className="text-sm text-muted-foreground">The future of university and public transport</p>
           </div>
           <div>
             <h3 className="font-headline font-semibold mb-4">Quick Links</h3>

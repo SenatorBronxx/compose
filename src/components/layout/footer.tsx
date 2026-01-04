@@ -33,7 +33,7 @@ function XIcon(props: React.SVGProps<SVGSVGElement>) {
 const socialLinks = [
     { name: "Facebook", icon: Facebook, href: "#" },
     { name: "X", icon: 'https://cdn-icons-png.flaticon.com/128/5968/5968958.png', href: "#" },
-    { name: "Instagram", icon: Instagram, href: "#" },
+    { name: "Instagram", icon: Instagram, href: "https://www.instagram.com/eritastransportcompany?igsh=cWVmbmt2cWg0em91" },
     { name: "LinkedIn", icon: Linkedin, href: "#" },
 ]
 

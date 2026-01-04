@@ -12,6 +12,7 @@ const requirements = [
     "Clean driving record",
     "Pass a background check",
     "Customer service oriented",
+    "And other necessary ID documents",
   ];
 
 const onboardingSteps = [

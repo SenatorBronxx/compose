@@ -28,6 +28,8 @@ import { ScrollAnimation } from '@/components/ui/scroll-animation';
 import { Label } from '@/components/ui/label';
 import { useFirestore, addDocumentNonBlocking } from '@/firebase';
 import { collection, serverTimestamp } from 'firebase/firestore';
+import Image from 'next/image';
+import { PlaceHolderImages } from '@/lib/placeholder-images';
 
 
 // Zod validation schema
@@ -100,6 +102,7 @@ const featureItems = [
 export default function StudentTransportSurvey() {
   const { toast } = useToast();
   const firestore = useFirestore();
+  const surveyHeaderImage = PlaceHolderImages.find((img) => img.id === "survey-page-header");
 
   // Initialize form
   const form = useForm<SurveyFormData>({
@@ -129,6 +132,9 @@ export default function StudentTransportSurvey() {
   // Handle form submission
   const onSubmit = async (data: SurveyFormData) => {
     try {
+      if (!firestore) {
+        throw new Error("Firestore is not initialized");
+      }
       const responsesCollection = collection(firestore, 'survey-responses');
       await addDocumentNonBlocking(responsesCollection, {
         ...data,
@@ -151,24 +157,38 @@ export default function StudentTransportSurvey() {
   };
 
   return (
-    <div className="container mx-auto px-4 py-16 md:py-24">
-        <ScrollAnimation>
-          <header className="text-center mb-12">
+    <>
+      <section className="relative w-full h-[50vh] flex items-center justify-center text-center text-white">
+        {surveyHeaderImage && (
+            <Image
+                src={surveyHeaderImage.imageUrl}
+                alt={surveyHeaderImage.description}
+                fill
+                className="object-cover"
+                priority
+                data-ai-hint={surveyHeaderImage.imageHint}
+            />
+        )}
+        <div className="absolute inset-0 bg-black/60" />
+        <div className="relative z-10 p-4 max-w-4xl mx-auto">
+          <ScrollAnimation>
             <h1 className="font-headline text-4xl md:text-5xl font-bold mb-4">
               Student Transport Experience Survey
             </h1>
-            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+            <p className="text-lg text-muted-foreground max-w-3xl mx-auto text-primary-foreground/80">
               Help us understand your commuting challenges and preferences. 
               Your feedback will directly influence future transport improvements on campus.
             </p>
-            <div className="mt-6 p-3 bg-card rounded-lg border">
-              <p className="text-sm text-muted-foreground">
+            <div className="mt-6 p-3 bg-card/20 rounded-lg border border-white/20 backdrop-blur-sm w-fit mx-auto">
+              <p className="text-sm text-primary-foreground/90">
                 All responses are anonymous
               </p>
             </div>
-          </header>
-        </ScrollAnimation>
+          </ScrollAnimation>
+        </div>
+      </section>
 
+      <div className="container mx-auto px-4 py-16 md:py-24">
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-12">
             
@@ -1185,5 +1205,6 @@ export default function StudentTransportSurvey() {
           </form>
         </Form>
     </div>
+    </>
   );
 }

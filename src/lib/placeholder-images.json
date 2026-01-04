@@ -47,6 +47,12 @@
       "description": "A smiling driver at the wheel of a modern shuttle bus.",
       "imageUrl": "https://i.postimg.cc/kD3GkBhb/957cdb6e-5e9d-4a01-943b-9906de2caba5.png",
       "imageHint": "driver shuttle bus"
+    },
+    {
+      "id": "survey-page-header",
+      "description": "Students filling out a survey on mobile devices.",
+      "imageUrl": "https://i.postimg.cc/qvjBMff5/713a1a24-8f59-4c65-a343-1c3b3f5c4ee7.png",
+      "imageHint": "students survey mobile"
     }
   ]
 }

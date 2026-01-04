@@ -175,7 +175,7 @@ export default function StudentTransportSurvey() {
             <h1 className="font-headline text-4xl md:text-5xl font-bold mb-4">
               Student Transport Experience Survey
             </h1>
-            <p className="text-lg text-muted-foreground max-w-3xl mx-auto text-primary-foreground/80">
+            <p className="text-lg max-w-3xl mx-auto text-primary-foreground/90">
               Help us understand your commuting challenges and preferences. 
               Your feedback will directly influence future transport improvements on campus.
             </p>

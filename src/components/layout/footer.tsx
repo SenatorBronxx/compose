@@ -1,6 +1,6 @@
 
 import { Button } from "@/components/ui/button";
-import { Facebook, Instagram, Linkedin, Twitter } from "lucide-react";
+import { Facebook, Instagram, Linkedin } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -12,7 +12,7 @@ const navLinks = [
 
 function XIcon(props: React.SVGProps<SVGSVGElement>) {
     return (
-        <svg
+      <svg
         {...props}
         xmlns="http://www.w3.org/2000/svg"
         width="24"
@@ -23,16 +23,16 @@ function XIcon(props: React.SVGProps<SVGSVGElement>) {
         strokeWidth="2"
         strokeLinecap="round"
         strokeLinejoin="round"
-        >
+      >
         <path d="M18 6 6 18" />
         <path d="m6 6 12 12" />
-        </svg>
-    )
+      </svg>
+    );
 }
 
 const socialLinks = [
     { name: "Facebook", icon: Facebook, href: "#" },
-    { name: "X", icon: XIcon, href: "#" },
+    { name: "X", icon: 'https://cdn-icons-png.flaticon.com/128/5968/5968958.png', href: "#" },
     { name: "Instagram", icon: Instagram, href: "#" },
     { name: "LinkedIn", icon: Linkedin, href: "#" },
 ]
@@ -74,7 +74,11 @@ export function Footer() {
               {socialLinks.map((social) => (
                 <Button key={social.name} variant="ghost" size="icon" asChild>
                     <a href={social.href} aria-label={social.name}>
-                        <social.icon className="h-5 w-5 text-muted-foreground hover:text-primary" />
+                        {typeof social.icon === 'string' ? (
+                          <Image src={social.icon} alt={social.name} width={20} height={20} className="text-muted-foreground hover:text-primary" />
+                        ) : (
+                          <social.icon className="h-5 w-5 text-muted-foreground hover:text-primary" />
+                        )}
                     </a>
                 </Button>
               ))}

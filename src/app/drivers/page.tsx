@@ -11,7 +11,6 @@ const requirements = [
     "Valid driver's license",
     "Clean driving record",
     "Pass a background check",
-    "University affiliation (student, staff)",
     "Customer service oriented",
   ];
 

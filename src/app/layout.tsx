@@ -12,7 +12,7 @@ const spaceGrotesk = Space_Grotesk({ subsets: ["latin"], variable: "--font-space
 
 export const metadata: Metadata = {
   title: "ERITAS Smart Transit",
-  description: "Modern, responsive website for a smart transportation startup.",
+  description: "The Future of Modern Transport Is Here.",
 };
 
 export default function RootLayout({
